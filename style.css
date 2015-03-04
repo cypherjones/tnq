@@ -7,9 +7,45 @@ Version: 1.0
 Author: Beefy Marketing
 Author URI: http://beefymarketing.com
 */
-
+ 
 @import url(css/gravity.css);
 
+@font-face {
+    font-family: 'industrymedium';
+    src: url('fonts/Fort Foundry - Industry Medium-webfont.eot');
+    src: url('fonts/Fort Foundry - Industry Medium-webfont.eot?#iefix') format('embedded-opentype'),
+         url('fonts/Fort Foundry - Industry Medium-webfont.woff2') format('woff2'),
+         url('fonts/Fort Foundry - Industry Medium-webfont.woff') format('woff'),
+         url('fonts/Fort Foundry - Industry Medium-webfont.ttf') format('truetype'),
+         url('fonts/Fort Foundry - Industry Medium-webfont.svg#industrymedium') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+@font-face {
+    font-family: 'industrythin';
+    src: url('fonts/Fort Foundry - Industry Thin-webfont.eot');
+    src: url('fonts/Fort Foundry - Industry Thin-webfont.eot?#iefix') format('embedded-opentype'),
+         url('fonts/Fort Foundry - Industry Thin-webfont.woff2') format('woff2'),
+         url('fonts/Fort Foundry - Industry Thin-webfont.woff') format('woff'),
+         url('fonts/Fort Foundry - Industry Thin-webfont.ttf') format('truetype'),
+         url('fonts/Fort Foundry - Industry Thin-webfont.svg#industrythin') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+@font-face {
+    font-family: 'industrylight';
+    src: url('fonts/Fort Foundry - Industry Light-webfont.eot');
+    src: url('fonts/Fort Foundry - Industry Light-webfont.eot?#iefix') format('embedded-opentype'),
+         url('fonts/Fort Foundry - Industry Light-webfont.woff2') format('woff2'),
+         url('fonts/Fort Foundry - Industry Light-webfont.woff') format('woff'),
+         url('fonts/Fort Foundry - Industry Light-webfont.ttf') format('truetype'),
+         url('fonts/Fort Foundry - Industry Light-webfont.svg#industrylight') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
 @font-face {
     font-family: 'industrybold';
     src: url('fonts/Fort Foundry - Industry Bold-webfont.eot');
@@ -269,7 +305,7 @@ header .navbar-default .navbar-collapse {
 }
 .menu ul li {
   display: inline-block;
-  padding-right: 38px;
+  padding-right: 28px;
   font-size: 15px;
   font-family: 'industrybold';
   text-transform: uppercase;
@@ -311,6 +347,100 @@ header .navbar-default .navbar-collapse {
     padding-top: 10px;
   }
 }
+/* = Page 
+-------------------------------------------------------------- */
+#heading {
+  color: #fff;
+}
+
+#heading .background {
+  background-repeat: no-repeat;
+  max-height: 450px;
+  height: 100%;
+  background-size: cover;
+  background-position: 100%;
+  width: 100%;
+}
+#heading .title {
+  text-align: center;
+  margin-top: 12%;
+}
+#heading .title h1 {
+  text-transform: uppercase;
+  font-size: 110px;
+  color: #fff;
+  font-family: industryultra;
+  letter-spacing: 23px;
+}
+@media screen and (max-width: 768px) {
+  #heading .title h1 {
+    font-size: 76px;
+  }
+}
+@media screen and (max-width: 992px) {
+  #heading .background {
+    max-height: 290px;
+  }
+  #heading .title h1 {
+    font-size: 76px;
+  }
+}
+/*.............. content .............*/
+#content {
+  background-color: #1d1d1d;
+  color: #fff;
+  font-family: lato;
+}
+#content .heading {
+  text-align: center;
+}
+#content .heading h2 {
+  text-transform: uppercase;
+  font-size: 3em;
+  color: #fff;
+  font-family: industryultra;
+  letter-spacing: 5px;
+}
+#content .heading h2 span {
+  color: #cc0000;
+}
+#content .content p {
+  color: #fff;
+  font-family: lato;
+  font-size: 27px;
+  font-weight: 300;
+  text-align: center;
+}
+#content .btns {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+#content .btn {
+  background-color: #cc0000;
+  border-radius: 4px;
+  padding: 20px;
+  margin-top: 12%;
+  width: 339px;
+}
+#content .btn a {
+  font-family: lato;
+  font-size: 20px;
+  font-weight: 400;
+  color: #fff;
+  text-transform: uppercase;
+}
+
+.gform_wrapper .gform_footer input.button, 
+.gform_wrapper .gform_footer input[type=submit] {
+  font-size: 1em;
+  background-color: #cc0000;
+  border: none;
+}
+select option:focus {
+  background-color: #cc0000; 
+}
+
 /* = Front Page 
 -------------------------------------------------------------- */
 
@@ -467,7 +597,7 @@ header .navbar-default .navbar-collapse {
   margin-top: 9%;
   font-family: lato;
   font-weight: 100;
-  letter-spacing: 5px;
+  letter-spacing: 8px;
 }
 
 /*.............. cta1 .............*/
@@ -527,7 +657,7 @@ header .navbar-default .navbar-collapse {
   font-weight: 100;
   text-align: center;
   text-transform: uppercase;
-  letter-spacing: 5px;
+  letter-spacing: 8px;
 }
 
 #newsCarousel .post {
@@ -538,10 +668,25 @@ header .navbar-default .navbar-collapse {
   width: 275px;
   min-height: 174px;
   text-align: center;
+  /*padding: 50px;*/
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+#newsCarousel .post:hover .overlay {
+  position: relative;
+  top: 0;
+  width: 275px;
+  min-height: 174px;
+  background-color: #cc0000;
+  opacity: .2;
+}
+#newsCarousel a {
+  text-decoration: none;
+}
+#newsCarousel .post .overlay {
   padding: 50px;
 }
-
-
 @media screen and (max-width: 1199px) {
   #newsCarousel .post {
     width: 225px;
@@ -559,25 +704,25 @@ header .navbar-default .navbar-collapse {
   }
 }
 #newsCarousel .post:hover:after {
-  border: 1px solid #fff;
+/*  border: 1px solid #fff;
   content: "";
   position: absolute;
-  top: 12px;
-  bottom: 12px;
-  left: 12px;
-  right: 12px;
+  top: 32px;
+  bottom: 32px; 
+  left: 47px;
+  right: 92px;*/
 }
 #newsCarousel .post:hover:before {
 /*  border-radius: 0px;
   box-shadow: 0px 0px 0px 8px rgba(255,255,255,0.3);  */
-  border: 12px solid #fff;
+/*  border: 12px solid #fff;
   content: "";
   position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  opacity: 0.3; 
+  top: 19px;
+  bottom: 20px;
+  left: 35px;
+  right: 81px;
+  opacity: 0.3;*/
 }  
 #newsCarousel .post .date  {
   font-weight: 100;
@@ -654,7 +799,7 @@ header .navbar-default .navbar-collapse {
   font-size: 40px;
   font-weight: 300;
   text-transform: uppercase;
-  letter-spacing: 3px;
+  letter-spacing: 8px;
   margin-top: 10%;
 }
 #speaker .subtitle {
@@ -688,6 +833,82 @@ header .navbar-default .navbar-collapse {
   #speaker .btn {
     margin-top: 25%;
   }
+}
+/*.............. team .............*/
+#team_carousel {
+  font-family: lato;
+  color: #fff;
+}
+#team_carousel .title h1 {
+  font-weight: 200;
+  text-align: center;
+  margin-top: 60px;
+  text-transform: uppercase;
+  letter-spacing: 8px;
+}
+#team_carousel .subtitle {
+  text-align: center;
+  font-weight: 300;
+  max-width: 800px;
+  margin: 0 auto;
+}
+#team_carousel .carousel {
+  margin-bottom: 60px;
+}
+.team {
+  height: 280px;
+}
+#homeCarousel a,
+#aboutCarousel a {
+  text-decoration: none;
+}
+.team .member {
+  text-align: center;
+  max-height: 265px;
+}
+.team .member .img {
+  width: 100%;
+  max-height: 200px !important;
+  overflow: hidden;
+}
+.team .member .img img {
+  width: 100%;
+  height: 50%;
+}
+.team .member .meta {
+  padding-top: 13px;
+  font-family: lato;
+  background-color: #ffffff; 
+  opacity: 0.8;
+  min-height: 55px;
+}
+.team .member .name {
+  text-transform: uppercase;
+  font-weight: 600;
+  font-size: 11px;
+  color: #000;
+}
+.team .member .position {
+  font-weight: 200;
+  font-size: 10px;
+  color: #000;
+}
+#team_carousel .carousel-control {
+  position: absolute;
+  top: 110px;
+  bottom: 135px;
+  left: -3px;
+  width: 4%;
+  font-size: 20px;
+  color: #fff;
+  text-align: center;
+  opacity: 0.4;
+  background: #000;
+  border-radius: 3px;
+}
+#team_carousel .carousel-control.right {
+  left: auto;
+  right: 1px;
 }
 /* = About Page
 -------------------------------------------------------------- */
@@ -794,7 +1015,7 @@ header .navbar-default .navbar-collapse {
 }
 #about_carousel .team .member .img {
   background-color: #c0ccd3;
-  height: 185px;
+  min-height: 185px;
 }
 @media screen and (max-width: 991px) {
   #about_carousel .team .member .img {
@@ -803,17 +1024,7 @@ header .navbar-default .navbar-collapse {
 }
 #about_carousel .team .member .meta {
   background-color: #fff;
-  height: 100px;
-}
-.team .member .meta {
-  padding-left: 20px;
-  padding-top: 20px;
-  font-family: lato;
-}
-.team .member .name {
-  text-transform: uppercase;
-  font-weight: 600;
-  font-size: 11px;
+  height: auto;
 }
 .team .member .position {
   font-weight: 200;
@@ -855,6 +1066,14 @@ header .navbar-default .navbar-collapse {
     right: -14px;
   }
 }
+/* faster sliding speed */
+.carousel-inner > .item {
+/*    left: 0 !important;
+      -webkit-transition: opacity .4s; adjust timing here 
+         -moz-transition: opacity .4s;
+           -o-transition: opacity .4s;
+              transition: opacity .4s;*/
+}
 /*.............. carousel .............*/
 
 #about_form {
@@ -872,6 +1091,47 @@ header .navbar-default .navbar-collapse {
 #about_form .subtitle {
   font-size: 30px;
   font-weight: 300;
+}
+/*.............. about cta 2 .............*/
+
+#page_speaker {
+  background: #cc0000;
+  color: #fff;
+  height: 240px;
+}
+#page_speaker .title {
+  font-family: lato;
+  font-size: 40px;
+  font-weight: 300;
+  text-transform: uppercase;
+  letter-spacing: 8px;
+  margin-top: 10%;
+}
+#page_speaker .subtitle {
+  font-family: lato;
+  font-size: 15px;
+  font-weight: 100;
+  margin-bottom: 20px;
+  max-width: 450px;
+}
+#page_speaker .btn {
+  background-color: #fff;
+  border-radius: 4px;
+  padding: 22px 130px;
+  margin-top: 12%;
+}
+#page_speaker .btn a {
+  color: #cc0000;
+  font-family: lato;
+  font-size: 20px;
+  text-transform: uppercase;
+  text-decoration: none;
+}
+
+@media screen and (max-width: 768px) {
+  #speaker .btn {
+    margin-top: 25%;
+  }
 }
 /* = News Page
 -------------------------------------------------------------- */
@@ -894,6 +1154,11 @@ header .navbar-default .navbar-collapse {
   color: #fff;
   font-family: industryultra;
   letter-spacing: 23px;
+}
+#news_content .img {
+  -webkit-background-size: cover;
+  background-size: cover;
+  background-position: center;
 }
 @media screen and (max-width: 768px) {
   #news_heading .title h1 {
@@ -1041,10 +1306,11 @@ header .navbar-default .navbar-collapse {
 
 #news_content .sidebar.middle {
   width: 100%;
-  height: 300px;
+  min-height: 235px;
   background-color: #565555;
   margin-top: 30px;
   text-align: center;
+  margin-bottom: 40px;
 }
 #news_content .sidebar.middle .title,
 #news_content .sidebar.middle .subtitle,
@@ -1179,117 +1445,60 @@ header .navbar-default .navbar-collapse {
 /*.............. featured media element  .............*/
 
 #featured_media {
-  text-align: center;
-  position: relative;
+  padding-top: 103px;
+  margin-bottom: 110px;
 }
-#featured_media iframe {
-  width: 100%;
-  height: 100%;
+ 
+#featured_media iframe,
+#featured_media object,
+#featured_media embed {
+  width: 900px;
+  height: 506px;
 }
-#featured_media .media {
-  padding-top: 40px;
-}
-#featured_media a:hover {
-  color: transparent !important;
-}
-.media a {
-  position: absolute; 
-  top: 0; 
-  display: block; 
-  width: 75%; 
-  height: 100%; 
-  text-align: center; 
-  text-decoration: none;
-}
-.media a .play, 
-.media a .overlay {
-  opacity: 0;
-}
-.media a:hover .play, 
-.media a:hover .overlay {
-  display: block; 
-  transition: opacity .25s ease-in-out;-moz-transition: opacity .25s ease-in-out;-webkit-transition: opacity .25s ease-in-out;
-}
-.media a:hover .play {
-  position: relative; 
-  font-size: 64px; 
-  color: #ffffff; 
-  margin-top: 25%; 
-  z-index: 1000; 
-  opacity: 1;
-  text-decoration: none;
-}
-.media a:hover .overlay {
-  position: absolute; 
-  top: 0; 
-  width: 100%; 
-  height: 100%; 
-  background-color: #000000; 
-  opacity: .7;
-  text-decoration: none;
-}
-
-
-/*.............. gallery  .............*/
-
-#gallery {
-  color: #fff;
-}
-#gallery .subtitle h2 {
-  font-family: lato;
-  font-weight: 100;
-}
-
-/*Controls*/
-*{
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  box-sizing: border-box;
-}
-.controls{
-  padding: 2%;
-  color: #eee;
+.video {
   text-align: center;
 }
-#gallery button{
-  display: inline-block;
-  padding: .4em .8em;
-  background: transparent;
-  border: 0;
-  color: #ddd;
-  font-size: 16px;
-  font-weight: 100;
-  font-family: lato;
-  border-radius: 4px;
-  cursor: pointer;
-}
-#gallery button.active{
-  background: #cc0000;
-}
-#gallery button:focus{
-  outline: 0 none;
-}
-#gallery button + label{
-  margin-left: 1em;
-}
-#media_posts .mix {
-  display: none;
-  margin-bottom: 20px;
-}
-.taste {
-  height: 200px;
-  overflow: hidden;
-}
-@media screen and (max-width: 767px) {
-  .mix {
-    margin-bottom: 35px;
+@media screen and (max-width: 768px) {
+  #feature_media iframe {
+    height: 434px;
   }
+}
+
+/*.............. instagram feed media  .............*/
+
+#mediafeed .photo-box {
+  text-align: center;
+  min-height: 422px;
+  background-color: #fff;
+  border: 1px solid;
+  margin-bottom: 60px;
+  border-radius: 4px;
+}
+#mediafeed .likes {
+  font-family: industrymedium;
+  padding-top: 5px;
+  color: #cc0000;
+}
+#mediafeed .description {
+  font-family: lato;
+  font-size: 15px;
+  padding: 0 5px 10px;
+  color: #000;
+  position: relative;
+    top: 35px;
+    left: 180px;
+    margin-right: 17px;
+    transform: translate(-50%, -50%)
+}
+#mediafeed img {
+  margin-top: 10px;
+  width: 300px; 
 }
 
 /* = Events Page
 -------------------------------------------------------------- */
 /*.............. heading  .............*/
-#events_heading .background {
+#patriot-tour_heading .background {
   background-repeat: no-repeat;
   max-height: 450px;
   height: 100%;
@@ -1297,11 +1506,11 @@ header .navbar-default .navbar-collapse {
   background-position: 100%;
   width: 100%;
 }
-#events_heading .title {
+#patriot-tour_heading .title {
   text-align: center;
   margin-top: 12%;
 }
-#events_heading .title h1 {
+#patriot-tour_heading .title h1 {
   text-transform: uppercase;
   font-size: 110px;
   color: #fff;
@@ -1309,115 +1518,106 @@ header .navbar-default .navbar-collapse {
   letter-spacing: 23px;
 }
 @media screen and (max-width: 992px) {
-  #events_heading .background {
+  #patriot-tour_heading .background {
     max-height: 290px;
   }
-  #events_heading .title h1 {
+  #patriot-tour_heading .title h1 {
     font-size: 76px;
   }
 }
-#events_content .meta {
+#patriot-tour_content .meta {
   background-color: #f2f2f2;
   color: #000;
   text-align: center;
   min-height: 80px;
   font-family: lato;
 }
-#events_content .meta .title {
+#patriot-tour_content .meta .title {
   padding-top: 18px;
   font-weight: 900;
 }
-#events_content .meta .date {
+#patriot-tour_content .meta .date {
   font-size: 11px;
   font-weight: 300;
   padding-top: 10px;
 }
-#events_posts {
+#patriot-tour_posts {
   margin: 40px 0;
 }
-#events_posts .taste {
+#patriot-tour_posts .taste {
   height: 200px;
 }
-#events_posts .taste .post_thumb img {
+#patriot-tour_posts .taste .post_thumb img {
   height: 100% !important;
   width: 100%;
 }
-
-/*.............. search / twitter / instagram feeds  .............*/
-#events_posts .twitter.title,
-#events_posts .instagram.title {
-  border-bottom: 1px solid #cc0000;
-  padding-bottom: 20px;
+#patriot-tour_copy {
+  margin-top: 40px;
 }
-#events_posts .twitter_block {
-  margin-bottom: 30px;
-}
-#events_posts .search.sidebar {
-  border-top: 1px solid #cc0000;
-  padding-top: 10px;
-}
-#search-2 > h3,
-#searchform > div > label {
-  display: none;
-}
-#s {
-  background-color: #fff;
-  border-radius: 2px;
-  border: none;
-  height: 28px;
-  width: 100%;
-}
-#search-2 input:focus {
-  outline: none !important;
-  -webkit-box-shadow: none !important;
-  -moz-box-shadow: none !important;
-  box-shadow: none !important;
-  border-color: #777777;
-}
-#search-2 input:after {
-  content: 'search';
-  color: #000;
-}
-#searchsubmit {
-  border-radius: 4px;
-  background-color: #cc0000;
-  width: 110px;
-  height: 28px;
-  margin-bottom: 35px;
-  text-align: center;
-  border: none;
+#patriot-tour_copy p {
   color: #fff;
-  text-transform: uppercase;
-  font-size: 11px;
-  margin-top: 17px;
-}
-#events_posts .twitter.title h4,
-#events_posts .instagram.title h4 {
-  color: #f2f2f2;
   font-family: lato;
-  text-transform: uppercase;
-  font-size: 18px;
+  font-size: 27px;
+  font-weight: 300;
+  text-align: center;
 }
-#twitter-widget-0 .thm-dark {
-  background-color: transparent;
-  font-family: lato !important;
+#instagram h2 {
+  color: #fff;
+  font-family: industryultra;
+  text-align: center;
+  margin-bottom: 20px;
 }
-#twitter-widget-0 .thm-dark .p-author .profile .p-name {
-  color: #000 !important;
-  font-family: lato !important;
+#instafeed .photo-box {
+  text-align: center;
+  min-height: 250px;
+  background-color: #fff;
+  border: 1px solid;
+  margin-bottom: 60px;
+  border-radius: 4px;
 }
-#twitter-widget-0 .tweet .e-entry-title,
-#twiiter-widget-0 .var-narrow .e-entry-title {
-  color: #565555 !important;
-  font-family: lato !important;
-}
-#events_posts .instagram.feed {
-  margin-top: 20px;
-}
-#events_posts .all.tweets a {
+#instafeed .likes {
+  font-family: industrymedium;
+  padding-top: 5px;
   color: #cc0000;
 }
-
+#instafeed .description {
+  font-family: lato;
+  font-size: 10px;
+  padding: 0 5px 10px;
+  color: #000;
+  position: relative;
+    top: 35px;
+    left: 83px;
+    margin-right: 17px;
+    transform: translate(-50%, -50%)
+}
+#instafeed img {
+  margin-top: 10px;
+}
+#partners {
+  text-align: center;
+  margin-bottom: 60px;
+}
+#partners .btn.partner {
+  background-color: #fff;
+  border-radius: 0;
+  padding: 4px 18px;
+  width: 50%;
+  cursor: default;
+  height: 46px;
+  margin-top: 0px;
+  margin-bottom: 20px;
+  margin-left: auto;
+  margin-right: auto;
+}
+#partners .partner.logos ul {
+  list-style: none;
+  padding-left: 0;
+}
+#partners .partner.logos ul li {
+  display: inline-block;
+  padding-right: 20px;
+}
 /* = Support and Join Page
 -------------------------------------------------------------- */
 
@@ -1464,8 +1664,9 @@ header .navbar-default .navbar-collapse {
   text-transform: uppercase;
   font-size: 3em;
   color: #fff;
-  font-family: industryultra;
+  font-family: industrymedium;
   letter-spacing: 5px;
+  margin-top: 80px;
 }
 #support_content .heading h2 span {
   color: #cc0000;
@@ -1478,7 +1679,128 @@ header .navbar-default .navbar-collapse {
   font-weight: 300;
   text-align: center;
 }
+#gravity_form {
+  color: #fff;
+}
+#gravity_form .btn.icon {
+  border: 1px solid;
+  border-radius: 0px;
+  background: #cc0000;
+}
+#gravity_form .btn.icon i {
+  font-size: 34px;
+  padding: 5px;
+}
+#gravity_form .email .btn.icon i {
+  font-size: 30px;
+  padding: 9px;
+}
+#gravity_form ul {
+  list-style: none;
+  padding-left: 0;
+}
+#gravity_form ul li {
+  display: inline-block;
+  padding-right: 20px;
+}
+.welcome.graphic {
+  margin-top: 60px;
+  min-height: 224px;
+  background-repeat: no-repeat;
+  text-align: center
+}
+.welcome.graphic .graphic_copy {
+  font-size: 70px;
+  font-family: industrymedium;
+  letter-spacing: 8px;
+  text-transform: uppercase;
+  padding-top: 18px;
+}
 
+#gravity_form .contact_links {
+  margin: 90px 0;
+}
+#gravity_form .address .button, 
+#gravity_form .address .meta {
+  float: left;
+}
+#gravity_form .address .button {
+  width: 25%;
+}
+#gravity_form .address .meta {
+  width: 50%;
+}
+
+.grav_form {
+  margin-top: 52px;
+}
+.grav_form .ginput_container input, 
+.grav_form .ginput_container select, 
+.grav_form .ginput_container textarea {
+  width: 300px;
+  border-radius: 0;
+}
+.grav_form label {
+  display: none;
+}
+.grav_form .gform_wrapper .gform_footer input.button, 
+.grav_form .gform_wrapper .gform_footer input[type=submit] {
+  font-size: 1em;
+  background-color: #cc0000;
+  border: none;
+  width: 300px;
+  border-radius: 0;
+}
+#gravity_form .grav_form ul li {
+  display: inline-block;
+  padding-right: 20px;
+  margin-bottom: 25px;
+}
+
+/* = Members Single and General Single
+-------------------------------------------------------------- */
+
+#member_single,
+#single_page {
+  color: #fff;
+  background-color: #1d1d1d; 
+}
+#member_single .title h1,
+#single_page .title h1 {
+  font-family: industryultra;
+}
+#single_page .title h1 {
+  color: #cc0000;
+}
+#member_single .thumb,
+#single_page .thumb {
+  margin-bottom: 20px;
+}
+#member_single .position,
+#single_page .metahead {
+  font-family: lato;
+  font-size: 14px;
+  font-weight: 100;
+  margin-bottom: 40px;
+}
+#member_single .content,
+#single_page .metahead,
+#single_page .post_category,
+#single_page .content p {
+  font-family: lato;
+  font-weight: 100;
+}
+#single_page .metahead a,
+#single_page .post_category a,
+#single_page  a {
+  color: #fff;
+}
+#single_page .comment a{
+  margin-bottom: 40px;
+}
+#single_page_row {
+  margin-bottom: 40px;
+}
 /* = Contact Page
 -------------------------------------------------------------- */
 .form {
@@ -1545,13 +1867,12 @@ header .navbar-default .navbar-collapse {
 -------------------------------------------------------------- */
 .bottom {
   color: #fff;
-  margin-top: 100px;
 }
 .bottom.background {
   background-repeat: no-repeat;
   background-position: top center;
   height: 100%;
-  max-height: 500px;
+  max-height: 245px;
 }
 @media screen and (max-width: 768px) {
   .bottom.background {
@@ -1574,7 +1895,7 @@ footer .top {
   font-family: lato;
   font-weight: 100;
   font-size: 30px;
-  letter-spacing: 5px;
+  letter-spacing: 8px;
   text-transform: uppercase;
   text-align: center;
 }
@@ -1617,16 +1938,17 @@ footer .top {
 .bottom .partners {
   margin-top: 100px;
 }
-.partners .btn.partner {
+.btn.partner {
   background-color: #fff;
   border-radius: 0;
   padding: 4px 18px;
   width: 94%;
   cursor: default;
   height: 46px;
-  margin-top: 20px;
+  margin-top: 0px;
+  margin-bottom: 20px;
 }
-.bottom .partners span {
+.btn.partner span {
   font-family: industryblack;
   font-size: 25px;
   color: #000;
@@ -1663,6 +1985,7 @@ footer .top {
   font-family: lato;
   font-weight: 100;
   font-size: 10px;
+  margin-top: 8px;
 }
 .bottom .copyright a,
 .bottom .copyright a:hover,

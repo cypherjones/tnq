@@ -11,13 +11,18 @@
 <!-- ============  heading ============ -->
 
 	 <section id="<?php echo $page_slug; ?>_heading">
-      <div class="container background" style="background-image: url(<?php $bgImg = get_field('header_bg_image'); if (! empty($bgImg)) : echo $bgImg; endif; ?>);">
+      <div class="container background" style="background-image: url(<?php $bgImg = get_field('header_bg_image'); if (! empty($bgImg)) : echo $bgImg; endif; ?>);background-repeat: no-repeat;
+  max-height: 450px;
+  height: 100%;
+  background-size: cover;
+  background-position: 100%;
+  width: 100%;">
         <div class="row">
           <div class="col-md-12">
             <div class="title">
             <?php  
 
-              $title = get_field('page_title');
+              $title = get_field('title');
               if (! empty($title)) :
 
             ?>
@@ -68,8 +73,26 @@
 
 <!-- ============  cta ============ -->
 
-  <section id="calltoaction">
-    
-  </section>
+
+    <section id="page_speaker">
+      <div class="container">
+        <div class="row">
+          <div class="col-xs-6 col-sm-6 col-md-6">
+            <div class="title">
+              <?php $keyCtaTitle = get_field('2_key_cta_title'); if (! empty($keyCtaTitle)) : echo $keyCtaTitle; endif; ?>
+            </div>
+            <div class="subtitle">
+              <?php $keyCtaMsg = get_field('2_key_cta_msg'); if (! empty($keyCtaMsg)) : echo $keyCtaMsg; endif; ?>
+            </div>
+          </div>
+          <div class="col-xs-6 col-sm-6 col-md-6">
+            <div class="btn">
+              <a href="<?php $keyCtalink = get_field('2_key_cta_button_link'); if (! empty($keyCtalink)) : echo $keyCtalink; endif; ?>"><?php $keyCtaBtnTxt = get_field('2_key_cta_button_text'); if (! empty($keyCtaBtnTxt)) : echo $keyCtaBtnTxt; endif; ?>  <i class="fa fa-chevron-right"></i></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
 
 <?php get_footer( ); ?>

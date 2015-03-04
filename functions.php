@@ -161,7 +161,7 @@ if( function_exists('acf_add_options_page') ) {
       $labels = array(
         'name'                => _x( 'Events Manager', 'Post Type General Name', 'tnq' ),
         'singular_name'       => _x( 'Event', 'Post Type Singular Name', 'tnq' ),
-        'menu_name'           => __( 'Events', 'stephanierayos' ),
+        'menu_name'           => __( 'Events', 'tnq' ),
         'parent_item_colon'   => __( 'Parent Events:', 'tnq' ),
         'all_items'           => __( 'All Events', 'tnq' ),
         'view_item'           => __( 'View Events', 'tnq' ),
@@ -240,7 +240,7 @@ if( function_exists('acf_add_options_page') ) {
         'publicly_queryable'  => true,
         'capability_type'     => 'page',
         'rewrite'             => array('slug' => 'tnq-Media'),
-        'menu_icon'           => 'dashicons-images-alt ',
+        'menu_icon'           => 'dashicons-images-alt',
       );
       register_post_type( 'media gallery', $args );
 
@@ -249,6 +249,54 @@ if( function_exists('acf_add_options_page') ) {
   // Hook into the 'init' action
   
     add_action( 'init', 'media_post_type', 0 );
+
+    // Register Custom Post Type
+
+    function team_post_type() {
+
+      $labels = array(
+        'name'                => _x( 'Team Members', 'Post Type General Name', 'tnq' ),
+        'singular_name'       => _x( 'Member', 'Post Type Singular Name', 'tnq' ),
+        'menu_name'           => __( 'Members', 'tnq' ),
+        'parent_item_colon'   => __( 'Parent Members:', 'tnq' ),
+        'all_items'           => __( 'All Members', 'tnq' ),
+        'view_item'           => __( 'View Members', 'tnq' ),
+        'add_new_item'        => __( 'Add New Members', 'tnq' ),
+        'add_new'             => __( 'Add Members', 'tnq' ),
+        'edit_item'           => __( 'Edit Members', 'tnq' ),
+        'update_item'         => __( 'Update Members', 'tnq' ),
+        'search_items'        => __( 'Search Members', 'tnq' ),
+        'not_found'           => __( 'Not found', 'tnq' ),
+        'not_found_in_trash'  => __( 'Not found in Trash', 'tnq' ),
+      );
+      $args = array(
+        'label'               => __( 'Members', 'tnq' ),
+        'description'         => __( 'Post Type Description', 'tnq' ),
+        'labels'              => $labels,
+        'supports'            => array( 'title', 'thumbnail' ),
+        'taxonomies'          => array( 'category', 'post_tag' ),
+        'hierarchical'        => false,
+        'public'              => true,
+        'show_ui'             => true,
+        'show_in_menu'        => true,
+        'show_in_nav_menus'   => true,
+        'show_in_admin_bar'   => true,
+        'menu_position'       => 10,
+        'can_export'          => true,
+        'has_archive'         => true, 
+        'exclude_from_search' => false,
+        'publicly_queryable'  => true,
+        'capability_type'     => 'post',
+        'rewrite'             => array('slug' => 'tnq-members'),
+        'menu_icon'           => 'dashicons-admin-users',
+      );
+      register_post_type( 'tnq-members', $args );
+
+    }
+
+  // Hook into the 'init' action
+  
+    add_action( 'init', 'team_post_type', 0 );
 
 // Add Sidebars
 

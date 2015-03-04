@@ -42,6 +42,8 @@
     <?php //comments_popup_script(); // off by default ?>
     <?php wp_head(); ?>
 
+    
+    <script type="text/javascript" src="<?php bloginfo('template_directory' ); ?>/js/instafeed.min.js"></script>
 
     <!-- Place somewhere in the <head> of your document -->
     <script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script>
@@ -169,7 +171,7 @@
           </div>
           <div class="col-sm-4 col-md-4">
             <div class="logo">
-              <img src="<?php the_field('logo', 'option'); ?>" alt="">
+              <a href="<?php bloginfo('url' ); ?>"><img src="<?php the_field('logo', 'option'); ?>" alt=""></a>
             </div>
           </div>
           <div class="col-sm-4 col-md-4">
@@ -193,7 +195,7 @@
               <span class="icon-bar"></span>
             </button>
             <div>
-              <a href="#">
+              <a href="<?php bloginfo('url' ); ?>">
 
               <?php if(get_field('logo', 'option')) { ?>
 

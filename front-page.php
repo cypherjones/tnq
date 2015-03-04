@@ -80,7 +80,7 @@
             
            ?>
           </div>
-        </div>
+        </div> 
       </div>
     </section>
 
@@ -147,18 +147,18 @@
               if ( $i == 1 ) { echo '<div class="item active">'; }
                         
                         echo '<div class="col-xs-12 col-sm-4 col-md-4">';
-                
-                        the_post_thumbnail('medium');
-            
+                            
                         $date = get_the_date('d M Y');
                         $title   = get_the_title(); ?>
-                        
-                        <div class="post">
+                      <a href="<?php the_permalink(); ?>">
+                        <div class="post" style="background-image: url(<?php the_field('featured_image') ?>)">
+                          <div class="overlay">
                           <p class="date"><?php echo $date; ?></p>
             
                           <p class="title"><?php echo $title; ?></p>
+                          </div>
                         </div>
-
+                      </a>
                         
               </div>
             
@@ -174,8 +174,8 @@
             ?>
 
           </div>
-  
-
+        
+            
           <div class="pull-center">
             <a class="carousel-control left" href="#newsCarousel" data-slide="prev">‹</a>
             <a class="carousel-control right" href="#newsCarousel" data-slide="next">›</a>
@@ -244,17 +244,17 @@
         global $wp_query;
         
         $args = array( 
-                      'post_type' => 'page',
-                      'pagename' => 'about'
+                      'post_type' => 'tnq-members',
+                      'order'     => 'ASC',
+                      'orderby'   => 'date',
+                      'posts_per_page'  => 20
                       );
 
                 query_posts( $args );  
                    
       ?>
 
-    <?php if (have_posts()) : while (have_posts()) : the_post(); ?>  
-
-    <section id="about_carousel" style="background-image: url(<?php bloginfo('template_directory' ); ?>/assets/img/team_bg.png);">
+    <section id="team_carousel" style="background-image: url(<?php bloginfo('template_directory' ); ?>/assets/img/team_bg.png);">
       <div class="container">
       <div class="row">
         <div class="col-xs-12 col-md-12">
@@ -271,42 +271,43 @@
 
             <?php
 
-              if ( have_rows('team') ) : $i = 0;
+              if ( have_posts() ) : $i = 0;
 
-              while ( have_rows('team') ) : the_row();
+              while ( have_posts()) : the_post();
             
               $i++;
             
               if ( $i == 1 ) { ?> 
 
-              <div class="item active team"> 
+              <div class="item active"> 
 
               <?php } ?>
                         
-                <div class="col-xs-3 col-sm-3 col-md-3 member">
-
-                  <div class="img">
-                    <img src="<?php the_sub_field('image'); ?>" alt="">
-                  </div>
-                  <div class="meta">
-                    <div class="name">
-                      <?php the_sub_field('name'); ?>
+                <div class="col-xs-3 col-sm-3 col-md-3">
+                  <a href="<?php the_permalink(); ?>">
+                    <div class="team">
+                      <div class="member">
+                        <div class="img">
+                          <img src="<?php the_field('photo'); ?>" alt="" class="img-responsive">
+                        </div>
+                        <div class="meta">
+                          <div class="name">
+                            <?php the_title( ); ?>
+                          </div>
+                          <div class="position">
+                            <?php the_field('position') ?>
+                          </div>
+                        </div>
+                      </div>
                     </div>
-                    <div class="position">
-                      <?php the_sub_field('position'); ?>
-                    </div>
-                    <div class="description">
-                      <?php the_sub_field('description'); ?>
-                    </div>
-                  </div>
-
+                  </a>
                 </div>
             
-            <?php if ( $i % 5 == 0 && $i != 10 ) { ?> 
+            <?php if ( $i % 4 == 0 && $i != 10 ) { ?> 
 
             </div>
 
-            <div class="item ">
+            <div class="item">
 
             <?php } 
             
@@ -320,15 +321,12 @@
   
 
           <div class="pull-center">
-            <a class="carousel-control left" href="#about_carousel" data-slide="prev">‹</a>
-            <a class="carousel-control right" href="#about_carousel" data-slide="next">›</a>
+            <a class="carousel-control left" href="#homeCarousel" data-slide="prev">‹</a>
+            <a class="carousel-control right" href="#homeCarousel" data-slide="next">›</a>
           </div>
         </div>
       </div>
     </section>
-
-  <?php endwhile; endif; wp_reset_query(); rewind_posts(); ?>
-
 
   
 <?php get_footer( ); ?>

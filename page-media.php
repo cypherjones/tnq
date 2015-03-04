@@ -17,7 +17,7 @@
             <div class="title">
             <?php  
 
-              $title = get_field('page_title');
+              $title = get_field('title');
               if (! empty($title)) :
 
             ?>
@@ -26,8 +26,6 @@
             <?php else : ?>
 
               <h1>Please Enter A Page Title</h1>
-
-              <?php echo the_field('cta_title'); ?>
 
             <?php endif; ?>
             </div>
@@ -47,19 +45,9 @@
 
             if (! empty($mainElement)) : 
 
-           ?>
-
-          <div class="media">
-            <div onclick="this.nextElementSibling.style.display='block'; this.style.display='none'">
-              <a href="#">
-                <span class="play">&#9658</span>
-                <div class="overlay"></div>
-              </a>
-              <img src="http://img.youtube.com/vi/<?php echo $mainElement; ?>/maxresdefault.jpg" alt="" style="cursor:pointer" />
-            </div>
-            <div style="display:none">
-              <iframe src="https://www.youtube.com/embed/<?php echo $mainElement; ?>?/feature=oembed" frameborder="0"></iframe>
-            </div>
+           ?> 
+          <div class="video">
+              <?php echo $mainElement; ?>
           </div>
 
           <?php  endif; ?>
@@ -69,98 +57,49 @@
 
     <!-- ============  gallery  ============ -->
 
-    <section id="gallery">
-      <?php
-
-            $gallery = new WP_Query( 
-                        array(
-                              'post_type' => 'media gallery',
-                              'order'     => 'DSC',
-                              'orderby'   => 'date',
-                              'posts_per_page'  => 20
-                            )
-                          ); 
-                    
-          ?>
-
-
+    <section id="instagram">
       <div class="container">
-          <div class="row <?php echo $page_slug ?>"> 
-            <div class="col-md-12">
-              <div class="controls">
-                <div class="subtitle">
-                  <?php 
-                    $title = get_field('page_title');
-                    if (! empty($title)) : ?>
-                    <h2><?php echo $title; ?></h2>
-                   <?php endif; ?>
-                </div>                
-                <button class="filter" data-filter="all">All</button>
-                <?php 
-                    $terms = get_terms("category"); 
-                    $count = count($terms); 
-                    if ( $count > 0 ){  
-                      foreach ( $terms as $term ) { 
-                        echo "<button class='filter' data-filter='.".$term->slug."'>" . $term->name . "</button>";
-                      }
-                    } 
-                  ?>
-                
-
-              </div>
-            </div>
-          </div>
-          <div id="<?php echo $page_slug ?>_posts" class="row">
-            <div class="col-xs-12 col-md-12 img_column">
-              <?php while ( $gallery->have_posts()) : $gallery->the_post();
-                $termsArray = get_the_terms( $post->ID, "category" );  
-                $termsString = ""; 
-                  foreach ( $termsArray as $term ) {  
-                    $termsString .= $term->slug.' '; 
-                  }
-              ?> 
-                    <div class="mix <?php echo $termsString; ?> item col-xs-4 col-sm-6 col-md-4">
-                      <div class="taste">
-                        <div class="post_thumb">
-                          <?php 
-
-                              $image = get_field('image');
-                              $video = get_field('video_id');
-                              $press = get_field('press_image');
-
-
-                              if (! empty($image)) : ?>
-                      
-                                <img class="img-responsive" src="<?php echo $image ?>" alt="">
-
-                              <?php elseif (! empty($video)) : ?>
-
-                                <img class="img-responsive" src="http://img.youtube.com/vi/<?php echo $video ?>/maxresdefault.jpg" alt="">
-
-                              <?php elseif (! empty($press)) : ?>
-
-                                <img class="img-responsive" src="<?php echo $press ?>" alt="">
-
-                              <?php endif; 
-
-                            ?>
-                          
-                        </div>
-                      </div>
-                      <div class="meta">
-                        <div class="title">
-                          <?php the_title( ); ?>
-                        </div>
-                        <div class="date">
-                          <?php the_time('F, Y'); ?>
-                        </div>
-                      </div>
-                    </div>
-              <?php endwhile;  ?>
-            </div>
-          </div>
+        <div class="row">
+          <!-- intagram feed -->
+           <div id="mediafeed"></div>
+        </div>
       </div>
     </section>
+    <!-- ============ cta 2 ============ -->
+
+  <?php global $wp_query;
+      
+      $args = array( 
+                    'post_type' => 'page',
+                    'pagename' => 'media'
+                    );
+
+              query_posts( $args );  
+                 
+      ?>      
+  <?php if( have_posts() ) : while (have_posts()) : the_post(); ?>
+    <section id="page_speaker">
+      <div class="container">
+        <div class="row">
+          <div class="col-xs-6 col-sm-6 col-md-6">
+            <div class="title">
+              <?php $keyCtaTitle = get_field('2_key_cta_title'); if (! empty($keyCtaTitle)) : echo $keyCtaTitle; endif; ?>
+            </div>
+            <div class="subtitle">
+              <?php $keyCtaMsg = get_field('2_key_cta_msg'); if (! empty($keyCtaMsg)) : echo $keyCtaMsg; endif; ?>
+            </div>
+          </div>
+          <div class="col-xs-6 col-sm-6 col-md-6">
+            <div class="btn">
+              <a href="<?php $keyCtalink = get_field('2_key_cta_button_link'); if (! empty($keyCtalink)) : echo $keyCtalink; endif; ?>"><?php $keyCtaBtnTxt = get_field('2_key_cta_button_text'); if (! empty($keyCtaBtnTxt)) : echo $keyCtaBtnTxt; endif; ?>  <i class="fa fa-chevron-right"></i></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <?php endwhile; endif; ?>
+
+    <?php wp_reset_query(); rewind_posts(); ?>
 
 
 

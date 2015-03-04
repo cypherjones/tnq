@@ -17,7 +17,7 @@
             <div class="title">
             <?php  
 
-              $title = get_field('page_title');
+              $title = get_field('title');
               if (! empty($title)) :
 
             ?>
@@ -27,8 +27,6 @@
 
               <h1>Please Enter A Page Title</h1>
 
-              <?php echo the_field('cta_title'); ?>
-
             <?php endif; ?>
             </div>
           </div>
@@ -36,6 +34,16 @@
       </div>
     </section>
 
+    <section id="<?php echo $page_slug ?>_copy">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12">
+            <?php the_field('content') ?>
+          </div>
+        </div>
+      </div>
+    </section>
+  
     <!-- ============  events ============ -->
 
     <section id="<?php echo $page_slug ?>_content">
@@ -46,14 +54,14 @@
                       array(
                             'post_type' => 'tnq-events',
                             'order'     => 'ASC',
-                            'orderby'   => 'meta_value_num',
+                            'orderby'   => 'meta_value',
                             'meta_key'  => 'event_date',
                             'posts_per_page'  => 48,
                             'meta_query' => array(
                                 array(
-                                  'value'         => date('Ymd',strtotime("today")),
+                                  'value'         => date('F j, Y',strtotime("today")),
                                   'compare'       => '>=',
-                                  'type'          => 'DATE'
+                                  'type'          => 'NUMERIC'
                                 )
                               )
                           )
@@ -61,7 +69,7 @@
          ?>
 
         <div id="<?php echo $page_slug ?>_posts" class="row">
-          <div class="col-xs-12 col-md-9 img_column">
+          <div class="col-xs-12 col-md-12 img_column">
 
             <?php while ( $query->have_posts()) : $query->the_post(); 
 
@@ -73,7 +81,7 @@
 
             ?>
 
-                  <div class="mix col-xs-6 col-sm-6 col-md-4">
+                  <div class="mix col-xs-6 col-sm-6 col-md-3">
                     <div class="taste">
                       <div class="post_thumb">
 
@@ -101,51 +109,80 @@
 
         </div>
       
-
-        <!-- ============  twitter and instagram feeds ============ -->
-
-        <div class="col-xs-12 col-md-3">
-          <div class="col-xs-4 search sidebar">
-            <?php dynamic_sidebar('top' ); ?>
-          </div>
-          <div class="col-xs-4 twitter_block">    <!-- twitter feed -->
-            <div class="twitter title">
-              <h4>Twitter Feed</h4>
-            </div>
-            <a class="twitter-timeline" 
-
-            href="https://twitter.com/Team_neverquit" 
-            data-widget-id="569636793704648704" 
-            height="300" 
-            theme="transparent"
-            data-chrome="noheader nofooter noborders transparent"
-            data-tweet-limit="2"
-            data-link-color="#cc0000"
-            >
-
-            Tweets by @Team_neverquit
-            
-            </a>
-            <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");
-            </script>
-            <div class="all tweets">
-              <a href="https://twitter.com/Team_neverquit">See all tweets</a>
-            </div>
-          </div>  <!-- / twitter feed -->
-          <div class="col-xs-4 instagram_block">   <!-- instagram feed -->
-            <div class="instagram title">
-              <h4>Instagram Feed</h4>
-            </div>
-            <div class="instagram feed">
-              <iframe src="http://www.intagme.com/in/?u=bWFyY3VzbHV0dHJlbGx8aW58MTAwfDJ8M3x8bm98MjB8dW5kZWZpbmVkfHllcw==" allowTransparency="true" frameborder="0" scrolling="no" style="border:none; overflow:hidden; width:240px; height: 360px" ></iframe>
-            </div>
-          </div>
-
-        </div>
         </div>  <!-- / row -->
     </div>
 
 
     </section>
+
+    <section id="instagram">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12">
+            <h2>Instagram Feed</h2>
+          </div>
+        </div>
+        <div class="row">
+          <!-- intagram feed -->
+           <div id="instafeed"></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="partners">
+      <div class="container">
+        <div class="row">
+          <div class="btn partner">
+                <span>Our Partners</span>
+              </div>
+              <div class="partner logos">
+                <ul>
+                  <?php if( have_rows('partner','option') ): while ( have_rows('partner','option') ) : the_row(); ?>
+                    <li>
+                      <a href="<?php the_sub_field('partner_url', 'option') ?>">
+                        <img src="<?php the_sub_field('partner_logo','option'); ?>" alt="">
+                      </a>
+                    </li>
+                  <?php endwhile; endif; ?>
+                </ul>
+              </div>
+        </div>
+      </div>
+
+    </section>
+
+    <?php global $wp_query;
+      
+      $args = array( 
+                    'post_type' => 'page',
+                    'pagename' => 'media'
+                    );
+
+              query_posts( $args );  
+                 
+      ?>      
+  <?php if( have_posts() ) : while (have_posts()) : the_post(); ?>
+    <section id="page_speaker">
+      <div class="container">
+        <div class="row">
+          <div class="col-xs-6 col-sm-6 col-md-6">
+            <div class="title">
+              <?php $keyCtaTitle = get_field('2_key_cta_title'); if (! empty($keyCtaTitle)) : echo $keyCtaTitle; endif; ?>
+            </div>
+            <div class="subtitle">
+              <?php $keyCtaMsg = get_field('2_key_cta_msg'); if (! empty($keyCtaMsg)) : echo $keyCtaMsg; endif; ?>
+            </div>
+          </div>
+          <div class="col-xs-6 col-sm-6 col-md-6">
+            <div class="btn">
+              <a href="<?php $keyCtalink = get_field('2_key_cta_button_link'); if (! empty($keyCtalink)) : echo $keyCtalink; endif; ?>"><?php $keyCtaBtnTxt = get_field('2_key_cta_button_text'); if (! empty($keyCtaBtnTxt)) : echo $keyCtaBtnTxt; endif; ?>  <i class="fa fa-chevron-right"></i></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <?php endwhile; endif; ?>
+
+    <?php wp_reset_query(); rewind_posts(); ?>
 
 <?php get_footer( ); ?>

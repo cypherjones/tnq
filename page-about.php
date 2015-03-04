@@ -8,6 +8,7 @@
 
  <?php get_header(); ?>
 
+
 <section id="<?php echo $page_slug; ?>_heading">
       <div class="container background" style="background-image: url(<?php $bgImg = get_field('header_bg_image'); if (! empty($bgImg)) : echo $bgImg; endif; ?>)">
         <div class="row">
@@ -15,7 +16,7 @@
             <div class="title">
             <?php  
 
-              $title = get_field('page_title');
+              $title = get_field('title');
               if (! empty($title)) :
 
             ?>
@@ -32,6 +33,8 @@
       </div>
     </section>
 
+    <!-- ============ content ============ -->
+
     <section id="<?php echo $page_slug ?>_content">
       <div class="container">
         <div class="heading">
@@ -42,7 +45,7 @@
           if (! empty($heading)) :
 
         ?>
-          <h2><?php echo $heading; ?></h2>
+           <h2>The <span>Team Never Quit</span> Mission</h2>
           
         <?php else : ?>
 
@@ -80,13 +83,29 @@
       </div>
     </section>
 
+    <!-- ============ carousel ============ -->
 
-    <section id="<?php echo $page_slug; ?>_carousel">
+    <?php
+
+        global $wp_query;
+        
+        $args = array( 
+                      'post_type' => 'tnq-members',
+                      'order'     => 'ASC',
+                      'orderby'   => 'date',
+                      'posts_per_page'  => 20
+                      );
+
+                query_posts( $args );  
+                   
+      ?>
+
+    <section id="team_carousel" style="background-image: url(<?php bloginfo('template_directory' ); ?>/assets/img/team_bg.png);">
       <div class="container">
       <div class="row">
-        <div class="col-md-12">
+        <div class="col-xs-12 col-md-12">
           <div class="title">
-            <h1>The TNQ TEAM</h1>   <!-- Add into acf -->
+            <h1>Meet the TNQ Team</h1>   <!-- Add into acf -->
           </div>
           <div class="subtitle">
             <p>Inventore labore, pariatur qui, iste quisquam optio dolore ipsum possimus! Pariatur dolore amet fugiat soluta doloremque nostrum quaerat atque architecto repudiandae earum!</p>
@@ -98,42 +117,46 @@
 
             <?php
 
-              if ( have_rows('team') ) : $i = 0;
+              if ( have_posts() ) : $i = 0;
 
-              while ( have_rows('team') ) : the_row();
+              while ( have_posts()) : the_post();
             
               $i++;
             
               if ( $i == 1 ) { ?> 
 
-              <div class="item active team"> 
+              <div class="item active"> 
 
               <?php } ?>
                         
-                <div class="col-xs-3 col-sm-3 col-md-3 member">
+                <div class="col-xs-3 col-sm-3 col-md-3">
+                  <a href="<?php the_permalink(); ?>">
+                    <div class="team">
+                      <div class="member">
+                        <div class="img">
+                          <img src="<?php the_field('photo'); ?>" alt="" class="img-responsive">
+                        </div>
+                        <div class="meta">
+                          <div class="name">
+                            <?php the_title( ); ?>
+                          </div>
+                          <div class="position">
+                            <?php the_field('position') ?>
+                          </div>
+                          <div class="description">
 
-                  <div class="img">
-                    <img src="<?php the_sub_field('image'); ?>" alt="">
-                  </div>
-                  <div class="meta">
-                    <div class="name">
-                      <?php the_sub_field('name'); ?>
+                          </div>
+                        </div>
+                      </div>
                     </div>
-                    <div class="position">
-                      <?php the_sub_field('position'); ?>
-                    </div>
-                    <div class="description">
-                      <?php the_sub_field('description'); ?>
-                    </div>
-                  </div>
-
+                  </a>
                 </div>
             
-            <?php if ( $i % 5 == 0 && $i != 10 ) { ?> 
+            <?php if ( $i % 4 == 0 && $i != 10 ) { ?> 
 
             </div>
 
-            <div class="item ">
+            <div class="item">
 
             <?php } 
             
@@ -141,37 +164,51 @@
               
             </div>
             
-            <?php  wp_reset_postdata(); endif; ?>
+            <?php  wp_reset_postdata(); endif; rewind_posts();?>
 
           </div>
-  
+   
 
           <div class="pull-center">
-            <a class="carousel-control left" href="#<?php echo $page_slug; ?>Carousel" data-slide="prev">‹</a>
-            <a class="carousel-control right" href="#<?php echo $page_slug; ?>Carousel" data-slide="next">›</a>
+            <a class="carousel-control left" href="#aboutCarousel" data-slide="prev">‹</a>
+            <a class="carousel-control right" href="#aboutCarousel" data-slide="next">›</a>
           </div>
         </div>
       </div>
     </section>
+  <!-- ============ cta 2 ============ -->
 
-    <section id="<?php echo $page_slug; ?>_form">
+  <?php global $wp_query;
+      
+      $args = array( 
+                    'post_type' => 'page',
+                    'pagename' => 'about'
+                    );
+
+              query_posts( $args );  
+                 
+      ?>      
+  <?php if( have_posts() ) : while (have_posts()) : the_post(); ?>
+    <section id="page_speaker">
       <div class="container">
         <div class="row">
-
-          <div class="col-md-12">
+          <div class="col-xs-6 col-sm-6 col-md-6">
             <div class="title">
-              <h2>Book A Speaker</h2>
+              <?php $keyCtaTitle = get_field('2_key_cta_title'); if (! empty($keyCtaTitle)) : echo $keyCtaTitle; endif; ?>
             </div>
             <div class="subtitle">
-              Fill out the form below to book a TNQ Speaker
+              <?php $keyCtaMsg = get_field('2_key_cta_msg'); if (! empty($keyCtaMsg)) : echo $keyCtaMsg; endif; ?>
             </div>
           </div>
-        </div>
-        <div class="row">
-          <div class="form">
-            
+          <div class="col-xs-6 col-sm-6 col-md-6">
+            <div class="btn">
+              <a href="<?php $keyCtalink = get_field('2_key_cta_button_link'); if (! empty($keyCtalink)) : echo $keyCtalink; endif; ?>"><?php $keyCtaBtnTxt = get_field('2_key_cta_button_text'); if (! empty($keyCtaBtnTxt)) : echo $keyCtaBtnTxt; endif; ?>  <i class="fa fa-chevron-right"></i></a>
+            </div>
           </div>
         </div>
       </div>
     </section>
+    <?php endwhile; endif; ?>
+
+    <?php wp_reset_query(); rewind_posts(); ?>
     <?php get_footer(); ?>

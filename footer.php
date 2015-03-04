@@ -12,10 +12,10 @@
         $ftrFmSubtitle  = get_field('ftr_form_subtitle','option');
 
        ?>
-      <div class="container">
+      <div class="container"> 
         <div class="row top">
           <div class="col-md-12">
-            <div class="col-md-4">
+            <div class="col-md-6">
               <div class="cta title">
                 <?php if(! empty($ftrTitle)) : echo $ftrTitle; endif; ?>
               </div>
@@ -41,31 +41,18 @@
                 </ul>
               </div>
             </div>
-            <div class="col-md-offset-1 col-md-7">
-              <div class="form title"> 
-                <?php if(! empty($ftrFmTitle)) : echo $ftrFmTitle; endif; ?>
-              </div>
-              <div class="form subtitle">
-                <?php if(! empty($ftrFmSubtitle)) : echo $ftrFmSubtitle; endif; ?>
-              </div>
-              <div class="form">
-                <?php if(! empty($ftrForm)) : echo $ftrForm; endif; ?>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="row partners center">
-          <div class="col-md-12">
-            <div class="col-md-4">
+            <div class="col-md-6 center">
               <div class="btn partner">
                 <span>Our Partners</span>
               </div>
-            </div>
-            <div class="col-md-offset-1 col-md-7">
               <div class="partner logos">
                 <ul>
-                  <?php if( have_rows('ftr_partners','option') ): while ( have_rows('ftr_partners','option') ) : the_row(); ?>
-                    <li><img src="<?php the_sub_field('partner_logo','option'); ?>" alt=""></li>
+                  <?php if( have_rows('partner','option') ): while ( have_rows('partner','option') ) : the_row(); ?>
+                    <li>
+                      <a href="<?php the_sub_field('partner_url', 'option') ?>">
+                        <img src="<?php the_sub_field('partner_logo','option'); ?>" alt="">
+                      </a>
+                    </li>
                   <?php endwhile; endif; ?>
                 </ul>
               </div>
@@ -75,7 +62,7 @@
         <div class="row">
           <div class="col-sm-6 col-md-6">
             <div class="copyright">
-              <p>Copyright 2015 Team Never Quit. All Rights Reserved. Powered by <a href="">Beefy Marketing.</a></p>
+              <p>Copyright 2015 Team Never Quit. All Rights Reserved. Powered by <a href="http://www.beefymarketing.com">Beefy Marketing.</a></p>
             </div>
           </div>
           <div class="col-sm-6 col-md-6">
@@ -99,13 +86,35 @@
         </div>
       </div>
     </footer>
+    <script type="text/javascript">
+    var userFeed = new Instafeed({
+        get: 'user',
+        userId: 599142,
+        accessToken: '599142.467ede5.1668832c8f374f579db084565b8d8dac',
+        limit: 6,
+        template: '<div class="col-xs-12 col-sm-6 col-md-2 col-lg-2"><div class="photo-box"><div class="image-wrap"><a href="{{link}}"><img src="{{image}}"></a><div class="likes"><i class="fa fa-heart"></i> {{likes}} Likes</div></div><div class="description">{{caption}}<div class="date">{{model.date}}</div></div></div></div>'
+    });
+    userFeed.run();
+    </script>
+    <script type="text/javascript">
+    var userFeed = new Instafeed({
+        target: 'mediafeed',
+        get: 'user',
+        userId: 599142,
+        accessToken: '599142.467ede5.1668832c8f374f579db084565b8d8dac',
+        limit: 24,
+        resolution: 'standard_resolution',
+        template: '<div class="col-xs-12 col-sm-6 col-md-4 col-lg-4"><div class="photo-box"><div class="image-wrap"><a href="{{link}}"><img src="{{image}}"></a><div class="likes"><i class="fa fa-heart"></i> {{likes}} Likes</div></div><div class="description">{{caption}}<div class="date">{{model.date}}</div></div></div></div>'
+    });
+    userFeed.run();
+    </script>
     <script>
         $(function(){
       $('#media_posts').mixItUp();
     });
     </script>
     <script>
-      $('#newsCarousel').carousel({
+      $('#newsCarousel, #homeCarousel, #aboutCarousel').carousel({
         interval: false     
          });
     </script>

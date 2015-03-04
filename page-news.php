@@ -17,7 +17,7 @@
             <div class="title">
             <?php  
 
-              $title = get_field('page_title');
+              $title = get_field('title');
               if (! empty($title)) :
 
             ?>
@@ -60,8 +60,7 @@
 
                   <div class="row post content">
                     <div class="col-sm-6 col-md-6">
-                      <div class="img">
-                        <?php the_post_thumbnail( ); ?>
+                      <div class="img" style="background-image:url(<?php the_field('featured_image') ?>)">
                       </div>
                     </div>
                     <div class="col-sm-6 col-md-6 post">
@@ -78,7 +77,7 @@
                         <a href="<?php the_permalink(); ?>">Read more...</a>
                       </div>
                     </div>
-                  </div>
+                  </div> 
 
                 <?php  endwhile; endif; ?>
 
@@ -156,9 +155,6 @@
                       $sidebar_subtitle_top        = get_field('sidebar_subtitle_top');
                       $sidebar_button_text_top     = get_field('sidebar_button_text_top');
                       $sidebar_button_link_top     = get_field('sidebar_button_link_top');
-                      $sidebar_subtitle_top        = get_field('sidebar_subtitle_top');
-                      $sidebar_button_text_top     = get_field('sidebar_button_text_top');
-                      $sidebar_button_link_top     = get_field('sidebar_button_link_top');
                       $sidebar_header_middle       = get_field('sidebar_header_middle');
                       $sidebar_subtitle_middle     = get_field('sidebar_subtitle_middle');
                       $sidebar_content_middle      = get_field('sidebar_content_middle');
@@ -193,6 +189,8 @@
             <!-- ============  middle sidebar  ============ -->
 
             <div class="sidebar middle">
+            
+              <div class="meta">
               <?php if (! empty($sidebar_header_middle)) : ?>
 
                 <div class="title"><?php echo $sidebar_header_middle; ?></div>
@@ -210,6 +208,8 @@
                 <div class="content"><?php echo $sidebar_content_middle; ?></div>
 
               <?php endif; ?>
+              
+              </div>
 
                <?php if (! empty($sidebar_button_text_middle)) : ?>
 
@@ -242,45 +242,31 @@
               <?php  endif; ?>
             </div>
           </div>
-          <?php endwhile; else : endif; ?> 
+           
         </div>
       </div>
     </section>
 
     <!-- ============  cta  ============ -->
-    <?php 
-          
-          global $wp_query;
-          
-          $args = array( 
-                        'post_type' => 'page',
-                        'pagename' => 'home'
-                        );
-
-                  query_posts( $args );  
-      
-
-      if(have_posts()) : ?><?php while(have_posts()) : the_post(); 
-    ?>
-    <section id="speaker">
+ 
+    <section id="page_speaker">
       <div class="container news">
         <div class="row">
           <div class="col-xs-6 col-sm-6 col-md-6">
             <div class="title">
-              <?php $keyCtaTitle = get_field('key_cta_title'); if (! empty($keyCtaTitle)) : echo $keyCtaTitle; endif; ?>
+              <?php $keyCtaTitle = get_field('2_key_cta_title'); if (! empty($keyCtaTitle)) : echo $keyCtaTitle; endif; ?>
             </div>
             <div class="subtitle">
-              <?php $keyCtaMsg = get_field('key_cta_msg'); if (! empty($keyCtaMsg)) : echo $keyCtaMsg; endif; ?>
+              <?php $keyCtaMsg = get_field('2_key_cta_msg'); if (! empty($keyCtaMsg)) : echo $keyCtaMsg; endif; ?>
             </div>
           </div>
           <div class="col-xs-6 col-sm-6 col-md-6">
             <div class="btn">
-              <a href="<?php $keyCtalink = get_field('key_cta_button_link'); if (! empty($keyCtalink)) : echo $keyCtalink; endif; ?>"><?php $keyCtaBtnTxt = get_field('key_cta_button_text'); if (! empty($keyCtaBtnTxt)) : echo $keyCtaBtnTxt; endif; ?></a>
+              <a href="<?php $keyCtalink = get_field('2_key_cta_button_link'); if (! empty($keyCtalink)) : echo $keyCtalink; endif; ?>"><?php $keyCtaBtnTxt = get_field('2_key_cta_button_text'); if (! empty($keyCtaBtnTxt)) : echo $keyCtaBtnTxt; endif; ?></a>
             </div>
           </div>
         </div>
       </div>
     </section>
   <?php endwhile; endif; ?>
-
  <?php get_footer(); ?>

@@ -1,10 +1,10 @@
 <?php get_header(); ?>
 
-<div id="single_page">
+<section id="single_page">
 
 	<div id="single_page_container" class="container">
 
-			<div id="single_page_column" class="col-md-8">
+			<div id="single_page_column" class="col-md-12">
 
 				<div id="single_page_row" class="row">
 		
@@ -13,13 +13,13 @@
 							<div class="page" id="page-<?php the_ID(); ?>">
 														
 								<div class="post">
-									<div id="single_page_post_heading">
+									<div class="title">
 										<h1><?php the_title(); ?></h1>
 									</div>
-									<div id="post_thumbnail"><?php the_post_thumbnail( ); ?></div>
+									<div class="thumb"><img src="<?php the_field('featured_image') ?>" alt=""></div>
 	
 									<div class="metahead">
-										Posted on <?php the_time('F j, Y'); ?> |  by: <?php the_author(); ?> | <?php comments_popup_link('Be the first to comment', '1 Comment', '% Comments'); ?>
+										Posted on <?php the_time('F j, Y'); ?>  |  by: <?php the_author(); ?> 
 									</div>
 											
 									<div class="post_category">
@@ -30,7 +30,7 @@
 										<?php the_tags('Tags: ', ', ', '<br />'); ?> 
 									</div>
 									
-									<div id="post_content">
+									<div class="content">
 										<?php the_content(); ?>
 									</div>
 												
@@ -39,25 +39,23 @@
 							</div> <!-- end of post -->
 					
 					<?php endwhile ; ?>
-					
-					<div class="liner-tan-large"></div>
 
 					<?php 
 
-						$css_class = 'zero_comments';
+						$css_class = 'comment zero_comments';
 						$number    = (int) get_comments_number( get_the_ID() );
 
 						if ( 1 === $number )
-						    $css_class = 'one_comment';
+						    $css_class = 'comment one_comment';
 						elseif ( 1 < $number )
-						    $css_class = 'multiple_comments';
+						    $css_class = 'comment multiple_comments';
 
 						comments_popup_link( 
-						    __( 'Be the first to comment', 'kylieburnside' ), 
-						    __( '1 Comment', 'kylieburnside' ), 
-						    __( '% Comments', 'kylieburnside' ),
+						    __( 'Be the first to comment', 'tnq' ), 
+						    __( '1 Comment', 'tnq' ), 
+						    __( '% Comments', 'tnq' ),
 						    $css_class,
-						    __( 'Comments are Closed', 'kylieburnside' )
+						    __( 'Comments are Closed', 'tnq' )
 						);
 
 					 ?>
@@ -73,22 +71,9 @@
 			</div>   <!-- end of main column -->
 
 		</div> <!-- end of container -->
-
-		<div id="sidebar_column" class="col-sm-12 col-md-4">
-			
-			<div id="sidebar_row">
-				
-				<?php get_sidebar('top' ); ?>
-
-				<?php get_sidebar('bottom' ); ?>
-				
-
-			</div>
-
-		</div>
 			
 	</div> <!-- end of wrapper-->
 
-</div><!-- #container-wrap -->
+</sction><!-- #container-wrap -->
 
 <?php get_footer(); ?>
