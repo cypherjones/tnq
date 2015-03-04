@@ -69,7 +69,7 @@
     <!-- type kit -->
 
     <script src="//use.typekit.net/bem5kjd.js"></script>
-  <script>try{Typekit.load();}catch(e){}</script>
+    <script>try{Typekit.load();}catch(e){}</script>
 
     <!-- bootstrap css -->
 
