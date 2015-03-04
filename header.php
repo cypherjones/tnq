@@ -46,7 +46,6 @@
     <!-- Place somewhere in the <head> of your document -->
     <script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script>
     <script src="http://cdn.jsdelivr.net/jquery.mixitup/latest/jquery.mixitup.min.js"></script>
-    <script src="main.js"></script>
 
     
     <!-- flexslider -->
