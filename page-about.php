@@ -192,7 +192,7 @@
     <section id="page_speaker">
       <div class="container">
         <div class="row">
-          <div class="col-xs-6 col-sm-6 col-md-6">
+          <div class="col-xs-12 col-sm-6 col-md-6">
             <div class="title">
               <?php $keyCtaTitle = get_field('2_key_cta_title'); if (! empty($keyCtaTitle)) : echo $keyCtaTitle; endif; ?>
             </div>
@@ -200,7 +200,7 @@
               <?php $keyCtaMsg = get_field('2_key_cta_msg'); if (! empty($keyCtaMsg)) : echo $keyCtaMsg; endif; ?>
             </div>
           </div>
-          <div class="col-xs-6 col-sm-6 col-md-6">
+          <div class="col-xs-12 col-sm-6 col-md-6">
             <div class="btn">
               <a href="<?php $keyCtalink = get_field('2_key_cta_button_link'); if (! empty($keyCtalink)) : echo $keyCtalink; endif; ?>"><?php $keyCtaBtnTxt = get_field('2_key_cta_button_text'); if (! empty($keyCtaBtnTxt)) : echo $keyCtaBtnTxt; endif; ?>  <i class="fa fa-chevron-right"></i></a>
             </div>

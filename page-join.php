@@ -11,12 +11,7 @@
 <!-- ============  heading ============ -->
 
 	 <section id="<?php echo $page_slug; ?>_heading">
-      <div class="container background" style="background-image: url(<?php $bgImg = get_field('header_bg_image'); if (! empty($bgImg)) : echo $bgImg; endif; ?>);background-repeat: no-repeat;
-  max-height: 450px;
-  height: 100%;
-  background-size: cover;
-  background-position: 100%;
-  width: 100%; ">
+      <div class="container background" style="background-image: url(<?php $bgImg = get_field('header_bg_image'); if (! empty($bgImg)) : echo $bgImg; endif; ?>)">
         <div class="row">
           <div class="col-md-12">
             <div class="title">
@@ -70,12 +65,12 @@
   <section id="gravity_form">
     <div class="container">
       <div class="row">
-        <div class="col-md-4">
+        <div class="col-md-offset-1 col-md-4">
           <div class="grav_form">
             <?php $form = get_field('join_now_gravity_form'); if (! empty($form)) : echo do_shortcode($form ); endif; ?>
           </div>
         </div>
-        <div class="col-md-offset-1 col-md-7">
+        <div class="col-md-6">
           <div class="welcome graphic" style="background-image: url(<?php $graphic = get_field('graphic'); if (!empty($graphic)) : echo $graphic ; endif; ?>)">
             <div class="graphic_copy">
               <?php $graphicCopy = get_field('text_on_top_of_graphic'); if (! empty($graphicCopy)) : echo $graphicCopy; endif; ?>
@@ -85,66 +80,62 @@
       </div>
       <div class="contact_links">
         <div class="row">
-        <div class="col-md-4">
-          <div class="address">
-            <div class="button">
-              <div class="btn icon">
-                <i class="fa fa-location-arrow"></i>
-              </div>
-            </div>
-            <div class="meta">
-              <div class="title">
-                Address
-              </div>
-              <div class="content">
-                <?php $addy = get_field('address', 'option'); if (! empty($addy)) : echo $addy; endif; ?>
-             </div>
-            </div>
-          </div>
-        </div>
-        <div class="col-md-4">
-          <div class="email">
+          <div class="center">
             <ul>
               <li>
-                <div class="btn icon">
-                  <i class="fa fa-envelope"></i>
+                <div class="address">
+                  <div class="button">
+                    <div class="btn icon">
+                      <i class="fa fa-location-arrow"></i>
+                    </div>
+                  </div>
+                  <div class="meta">
+                    <div class="title">
+                      Address
+                    </div>
+                    <div class="content">
+                      <?php $addy = get_field('address', 'option'); if (! empty($addy)) : echo $addy; endif; ?>
+                   </div>
+                  </div>
                 </div>
               </li>
               <li>
-                <div class="meta">
-                  <div class="title">
-                    Email
+                <div class="email">
+                  <div class="button">
+                    <div class="btn icon">
+                      <i class="fa fa-envelope"></i>
+                    </div>
                   </div>
-                  <div class="content">
-                    <?php $email = get_field('support_email', 'option'); if (! empty($email)) : echo $email; endif; ?>
+                  <div class="meta">
+                    <div class="title">
+                      Email
+                    </div>
+                    <div class="content">
+                      <?php $email = get_field('support_email', 'option'); if (! empty($email)) : echo $email; endif; ?>
+                    </div>
                   </div>
                 </div>
               </li>
-            </ul>
+              <li>
+                <div class="phone">
+                  <div class="button">
+                    <div class="btn icon">
+                      <i class="fa fa-phone"></i>
+                    </div>
+                  </div>
+                  <div class="meta">
+                    <div class="title">
+                      Phone Number
+                    </div>
+                    <div class="content">
+                      <?php $number = get_field('phone_number', 'option'); if (! empty($number)) : echo $number; endif; ?>
+                    </div>
+                  </div>
+                </div>
+              </li>
+            </ul>  
           </div>
         </div>
-        <div class="col-md-4">
-          <div class="phone">
-            <ul>
-              <li>
-                <div class="btn icon">
-                  <i class="fa fa-phone"></i>
-                </div>
-              </li>
-              <li>
-                <div class="meta">
-                  <div class="title">
-                    Phone Number
-                  </div>
-                  <div class="content">
-                    <?php $number = get_field('phone_number', 'option'); if (! empty($number)) : echo $number; endif; ?>
-                 </div>
-                </div>
-              </li>
-            </ul>
-          </div>
-        </div>
-      </div>
       </div>
     </div>
   </section>
