@@ -11,12 +11,7 @@
 <!-- ============  heading ============ -->
 
 	 <section id="<?php echo $page_slug; ?>_heading">
-      <div class="container background" style="background-image: url(<?php $bgImg = get_field('header_bg_image'); if (! empty($bgImg)) : echo $bgImg; endif; ?>);background-repeat: no-repeat;
-  max-height: 450px;
-  height: 100%;
-  background-size: cover;
-  background-position: 100%;
-  width: 100%;">
+      <div class="container background" style="background-image: url(<?php $bgImg = get_field('header_bg_image'); if (! empty($bgImg)) : echo $bgImg; endif; ?>)">
         <div class="row">
           <div class="col-md-12">
             <div class="title">

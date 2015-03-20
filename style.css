@@ -269,20 +269,20 @@ header .navbar {
   text-transform: uppercase;
 }
 .navbar-nav > li {
-  padding: 0 55px;
+  padding: 0 4px;
 }
 .navbar .navbar-collapse {
   text-align: left;
 }
 header .navbar .navbar-nav > li > a {
   padding-top: 5px;
-  padding-bottom: 5px;
+  padding-bottom: 15px;
   font-size: 18px;
   font-family: 'industrybold';
   color: #fff;
 }
 header .navbar-toggle {
-  margin-top: 29px;
+  margin-top: 18px;
   margin-right: 38px;
 }
 header .navbar-default .navbar-collapse {
@@ -292,7 +292,11 @@ header .navbar-default .navbar-collapse {
 #menu-item-home > a {
   background-color: transparent !important;
 }
-
+@media screen and (max-width: 767px) {
+  header .navbar-toggle {
+    padding: 22px 21px;
+  }
+}
 /*.............. Main Nav .............*/
 #nav {
   background-color: #fff;
@@ -335,7 +339,7 @@ header .navbar-default .navbar-collapse {
 
 @media screen and (max-width: 1199px) {
   .menu ul li {
-    padding-right: 19px;
+    padding-right: 11px;
   }
 }
 @media screen and (max-width: 991px) {
@@ -507,14 +511,7 @@ select option:focus {
 #frontCarousel .btn a {
   color: #fff;
 }
-@media screen and (max-width: 320px) {
-  #frontCarousel .content {
-    margin-right: 67px;
-  }
-  #frontCarousel .title {
-    font-size: 26px;
-  }
-}
+
 @media screen and (max-width: 480px) {
   #frontCarousel .content {
     margin-right: 59px;
@@ -523,7 +520,15 @@ select option:focus {
     margin-top: 10px;
     font-size: 44px;
   }
-
+}
+@media screen and (max-width: 320px) {
+  #frontCarousel .content {
+    margin-right: 67px;
+    margin-top: 45px;
+  }
+  #frontCarousel .title {
+    font-size: 26px;
+  }
 }
 /* faster sliding speed */
 .carousel-inner > .item {
@@ -599,7 +604,12 @@ select option:focus {
   font-weight: 100;
   letter-spacing: 8px;
 }
-
+@media screen and (max-width: 320px) {
+  #welcomeMsg .content {
+    font-size: 30px;
+    margin-top: 54px;
+  }
+}
 /*.............. cta1 .............*/
 
 #cta123 .container.no_pad.center {
@@ -619,6 +629,21 @@ select option:focus {
 @media screen and (max-width: 768px) {
   #cta123 .container.no_pad.center {
     width: 96%;
+  }
+}
+@media screen and (max-width: 480px) {
+  #cta123 .container.no_pad.center {
+    width: 94%;
+  }
+}
+@media screen and (max-width: 375px) {
+  #cta123 .container.no_pad.center {
+    width: 92%;
+  }
+}
+@media screen and (max-width: 320px) {
+  #cta123 .container.no_pad.center {
+    width: 90.5%;
   }
 }
 #cta123 .background {
@@ -698,11 +723,52 @@ select option:focus {
     height: 15%;
   }
 }
-@media screen and (max-width: 480px) {
+@media screen and (max-width: 767px) {
+  #news .title h1 {
+    margin: 40px 0;
+  }
   #newsCarousel .post {
-    width: 410px;
+    width: 95%;
+    height: 275px;
+  }
+} 
+@media screen and (max-width: 480px) {
+  #news {
+    height: 450px;
+  }
+  #news .desktop {
+    display: none;
+  }
+  #news .post {
+    background-color: #cc0000;
+    font-family: lato;
+    font-size: 22px;
+    color: #fff;
+    margin: 20px;
+    width: 91%;
+    min-height: 229px;
+    text-align: center;
+    /*padding: 50px;*/
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+  }
+  #news .post:hover .overlay {
+    position: relative;
+    top: 0;
+    width: 100%;
+    min-height: 229px;
+    background-color: #cc0000;
+    opacity: .2;
+  }
+  #news a {
+    text-decoration: none;
+  }
+  #news .post .overlay {
+    padding: 50px;
   }
 }
+
 #newsCarousel .post:hover:after {
 /*  border: 1px solid #fff;
   content: "";
@@ -758,6 +824,28 @@ select option:focus {
     right: 40px;
   }
 }
+@media screen and (max-width: 767px) {
+  #newsCarousel .post .title {
+    font-size: 40px;
+  }
+  #newsCarousel .post .date {
+    font-size: 32px;
+  }
+  #news .carousel-control {
+    top: -500px;
+    width: 60px;
+    height: 60px;
+    padding: 11px;
+  }
+  #news .carousel-control.right {
+    right: 12px;
+  }
+}
+@media screen and (min-width: 767px) {
+  #news .mbl {
+    display: none;
+  }
+}
 /*.............. Quote .............*/
 
 #quote.background {
@@ -782,11 +870,31 @@ select option:focus {
   font-style: italic;
   text-align: right;
 }
+@media screen and (max-width: 480px) {
+  #quote .content {
+    font-size: 30px;
+    margin-top: 16%;
+  }
+}
 @media screen and (max-width: 991px) {
   #quote.background {
     max-height: 500px;
   }
 }
+@media screen and (max-width: 375px) {
+  #quote .content {
+    font-size: 25px;
+  }
+}
+@media screen and (max-width: 320px) {
+  #quote .content {
+    font-size: 22px;
+  }
+  #quote .author {
+    margin-top: 10px;
+  }
+}
+
 /*.............. cta 2 .............*/
 
 #speaker {
@@ -829,9 +937,24 @@ select option:focus {
 .home #about_carousel .subtitle {
   padding: 20 0;
 }
+
 @media screen and (max-width: 768px) {
   #speaker .btn {
     margin-top: 25%;
+  }
+}
+@media screen and (max-width: 480px) {
+  #speaker {
+    height: 335px;
+  }
+  #speaker .btn {
+    padding: 12px 69px;
+    margin-top: 1%;
+  }
+}
+@media screen and (max-width: 320px) {
+  #speaker .btn {
+    padding: 12px 49px;
   }
 }
 /*.............. team .............*/
@@ -910,6 +1033,16 @@ select option:focus {
   left: auto;
   right: 1px;
 }
+@media screen and (max-width: 480px) {
+  #team .desktop {
+    display: none;
+  }
+}
+@media screen and (max-width: 320px) {
+  .team .member .meta {
+    min-height: 79px;
+  }
+} 
 /* = About Page
 -------------------------------------------------------------- */
 #page-about {
@@ -1129,7 +1262,7 @@ select option:focus {
 }
 
 @media screen and (max-width: 768px) {
-  #speaker .btn {
+  #page_speaker .btn {
     margin-top: 25%;
   }
 }
@@ -1374,15 +1507,15 @@ select option:focus {
   font-size: 30px;
 }
 @media screen and (max-width: 768px) {
-  #speaker .btn a {
+  .page-news #speaker .btn a {
     font-size: 18px;
   }
-  #speaker .btn {
+  .page-news #speaker .btn {
     padding: 12px 75px;
   }
 }
 @media screen and (max-width: 991px) {
-  #speaker .btn a {
+  .page-news #speaker .btn a {
     font-size: 16px;
   }
 }
@@ -1681,6 +1814,7 @@ select option:focus {
 }
 #gravity_form {
   color: #fff;
+  margin-top: 85px;
 }
 #gravity_form .btn.icon {
   border: 1px solid;
@@ -1695,13 +1829,47 @@ select option:focus {
   font-size: 30px;
   padding: 9px;
 }
+#gravity_form .contact_links {
+  text-align: center;
+  margin-top: 90px;
+  margin-bottom: 120px;
+  width: 90%;
+  margin-left: auto;
+  margin-right: auto;
+}
 #gravity_form ul {
   list-style: none;
-  padding-left: 0;
 }
-#gravity_form ul li {
+#gravity_form .contact_links ul li {
   display: inline-block;
   padding-right: 20px;
+  padding-left: 20px;
+  width: 33%;
+  overflow: hidden;
+}
+#gravity_form .button,
+#gravity_form .meta {
+  float: left;
+  max-width: 100%;
+}
+#gravity_form .button {
+  margin-right: 20px;
+}
+#gravity_form .meta {
+  text-align: left;
+}
+#gravity_form .address,
+#gravity_form .email,
+#gravity_form .phone {
+  height: 80px;
+}
+#gravity_form .meta .title {
+  margin-bottom: 10px;
+  font-family: lato;
+}
+#gravity_form .meta .content {
+  font-size: 10px;
+  font-family: lato;
 }
 .welcome.graphic {
   margin-top: 60px;
@@ -1716,21 +1884,6 @@ select option:focus {
   text-transform: uppercase;
   padding-top: 18px;
 }
-
-#gravity_form .contact_links {
-  margin: 90px 0;
-}
-#gravity_form .address .button, 
-#gravity_form .address .meta {
-  float: left;
-}
-#gravity_form .address .button {
-  width: 25%;
-}
-#gravity_form .address .meta {
-  width: 50%;
-}
-
 .grav_form {
   margin-top: 52px;
 }
@@ -1871,8 +2024,10 @@ select option:focus {
 .bottom.background {
   background-repeat: no-repeat;
   background-position: top center;
-  height: 100%;
-  max-height: 245px;
+  height: 307px;
+  max-height: 100%;
+  -webkit-background-size: 100%;
+  background-size: 100%;
 }
 @media screen and (max-width: 768px) {
   .bottom.background {
@@ -1925,11 +2080,15 @@ footer .top {
   padding: 10px 18px;
   width: 150px;
 }
+@media screen and (max-width: 768px) {
+  
+}
 @media screen and (max-width: 1199px) {
   .cta.btn {
     width: 120px;
   }
 }
+
 .cta.btn a {
   color: #fff;
   text-transform: uppercase;
@@ -1946,7 +2105,7 @@ footer .top {
   cursor: default;
   height: 46px;
   margin-top: 0px;
-  margin-bottom: 20px;
+  margin-bottom: 20px; 
 }
 .btn.partner span {
   font-family: industryblack;
@@ -1971,14 +2130,43 @@ footer .top {
 .bottom .partners.center ul li {
   padding-right: 20px;
 }
+
 @media screen and (max-width: 768px) {
   .bottom .btn.partner {
     margin-bottom: 20px;
+  }
+  .bottom.background {
+    max-height: 410px;
   }
 }
 @media screen and (max-width: 1024px) {
   .bottom .partners.center ul li {
     width: 32%;
+  }
+}
+@media screen and (max-width: 480px) {
+  .bottom.background {
+    max-height: 519px;
+  }
+  .bottom .btn.partner {
+    margin-top: 27px;
+  }
+}
+@media screen and (max-width: 375px) {
+  .bottom.background {
+    max-height: 530px;
+  }
+}
+@media screen and (max-width: 330px) {
+  .bottom.background {
+    max-height: 561px;
+  }
+  .btn.partner span {
+    font-size: 21px;
+  }
+  .bottom .btn.partner {
+    padding: 8px 18px;
+    
   }
 }
 .bottom .copyright {

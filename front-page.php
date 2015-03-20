@@ -127,7 +127,7 @@
           </div>
         </div>
       </div>
-      <div class="row">
+      <div class="row desktop">
         <div id="newsCarousel" class="carousel slide">
           <div class="carousel-inner">
 
@@ -182,6 +182,32 @@
           </div>
         </div>
       </div>
+      <div class="row mbl">
+        <?php
+              $args = array( 
+                'posts_per_page' => 1 
+                );
+            
+              $the_query = new WP_Query( $args );
+
+              if ( $the_query->have_posts() ) : while ( $the_query->have_posts() ) : $the_query->the_post(); ?>
+            
+              <div class="col-xs-12 col-sm-4 col-md-4">
+                            
+                <a href="<?php the_permalink(); ?>">
+                  <div class="post" style="background-image: url(<?php the_field('featured_image') ?>)">
+                    <div class="overlay">
+                    <p class="date"><?php echo $date; ?></p>
+      
+                    <p class="title"><?php echo $title; ?></p>
+                    </div>
+                  </div>
+                </a>
+                        
+              </div>
+                        
+           <?php endwhile; wp_reset_postdata(); endif; ?>
+      </div>
     </section>
 
      <!-- ============ quote ============ -->
@@ -217,7 +243,7 @@
     <section id="speaker">
       <div class="container">
         <div class="row">
-          <div class="col-xs-6 col-sm-6 col-md-6">
+          <div class="col-xs-12 col-sm-6 col-md-6">
             <div class="title">
               <?php $keyCtaTitle = get_field('key_cta_title'); if (! empty($keyCtaTitle)) : echo $keyCtaTitle; endif; ?>
             </div>
@@ -225,7 +251,7 @@
               <?php $keyCtaMsg = get_field('key_cta_msg'); if (! empty($keyCtaMsg)) : echo $keyCtaMsg; endif; ?>
             </div>
           </div>
-          <div class="col-xs-6 col-sm-6 col-md-6">
+          <div class="col-xs-12 col-sm-6 col-md-6">
             <div class="btn">
               <a href="<?php $keyCtalink = get_field('key_cta_button_link'); if (! empty($keyCtalink)) : echo $keyCtalink; endif; ?>"><?php $keyCtaBtnTxt = get_field('key_cta_button_text'); if (! empty($keyCtaBtnTxt)) : echo $keyCtaBtnTxt; endif; ?>  <i class="fa fa-chevron-right"></i></a>
             </div>
@@ -283,7 +309,11 @@
 
               <?php } ?>
                         
-                <div class="col-xs-3 col-sm-3 col-md-3">
+                <?php  if(is_mobile()) : ?>
+                  <div class="col-xs-6">
+                <?php else : ?>
+                  <div class="col-xs-3 col-sm-3 col-md-3">
+                <?php endif; ?>
                   <a href="<?php the_permalink(); ?>">
                     <div class="team">
                       <div class="member">
@@ -303,15 +333,26 @@
                   </a>
                 </div>
             
-            <?php if ( $i % 4 == 0 && $i != 10 ) { ?> 
+            <?php if(is_mobile()) : ?>
+              <?php if ( $i % 2 == 0 && $i != 5 ) { ?> 
 
             </div>
 
             <div class="item">
 
-            <?php } 
+            <?php } ?>
+            <?php else : ?>
+              <?php if ( $i % 4 == 0 && $i != 10 ) { ?> 
+
+            </div>
+
+            <div class="item">
+
+            <?php } ?>
+
+            <?php endif; ?>
             
-            endwhile; ?>
+            <?php endwhile; ?>
               
             </div>
             
