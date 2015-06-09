@@ -25,6 +25,11 @@
 						<div class="position">
 							<?php the_field('position') ?>
 						</div>
+						<div class="book-a-speaker">
+							<a href="<?php bloginfo('url'); ?>/book-a-speaker/">
+								<span class="btn">Book a Speaker</span>
+							</a>
+						</div>
 					</div>
 					<div class="col-md-8">
 						<div class="content">

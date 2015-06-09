@@ -205,7 +205,7 @@ header {
 }
 .top_banner .phone,
 .top_banner_bg .phone {
-  padding-left: 40px;
+  padding-left: 0px;
 }
 .top_banner .social ul,
 .top_banner_bg .social ul {
@@ -296,6 +296,23 @@ header .navbar-default .navbar-collapse {
   header .navbar-toggle {
     padding: 22px 21px;
   }
+  header .navbar-default .navbar-nav > .active > a, 
+  header .navbar-default .navbar-nav > .active > a:hover, 
+  header .navbar-default .navbar-nav > .active > a:focus {
+    background-color: transparent;
+  }
+}
+@media screen and (max-width: 480px) {
+  header .navbar-toggle {
+    margin-top: 10px;
+    margin-right: 18px;
+  }
+  header .navbar-toggle {
+    padding: 13px 13px;
+  }
+}
+@media screen and (max-width: 320px) {
+  
 }
 /*.............. Main Nav .............*/
 #nav {
@@ -309,7 +326,7 @@ header .navbar-default .navbar-collapse {
 }
 .menu ul li {
   display: inline-block;
-  padding-right: 28px;
+  padding-right: 23px;
   font-size: 15px;
   font-family: 'industrybold';
   text-transform: uppercase;
@@ -376,11 +393,6 @@ header .navbar-default .navbar-collapse {
   font-family: industryultra;
   letter-spacing: 23px;
 }
-@media screen and (max-width: 768px) {
-  #heading .title h1 {
-    font-size: 76px;
-  }
-}
 @media screen and (max-width: 992px) {
   #heading .background {
     max-height: 290px;
@@ -388,6 +400,24 @@ header .navbar-default .navbar-collapse {
   #heading .title h1 {
     font-size: 76px;
   }
+}
+@media screen and (max-width: 768px) {
+  #heading .title h1 {
+    font-size: 76px;
+  }
+}
+@media screen and (max-width: 480px) {
+  #heading .title h1 {
+    font-size: 34px;
+    margin-top: 146px;
+    letter-spacing: 7px
+  }
+}
+@media screen and (max-width: 375px) {
+  
+}
+@media screen and (max-width: 320px) {
+  
 }
 /*.............. content .............*/
 #content {
@@ -456,25 +486,23 @@ select option:focus {
   padding: 0;
   width: 100%;
 }
-#frontCarousel .content {
-  margin-right: 150px;
+#frontCarousel .copy {
+  /*margin-right: 150px;*/
+}
+#frontCarousel .content strong {
+  font-family: industrybold;
+  letter-spacing: 2px;
 }
 #frontCarousel .title {
   font-size: 50px;
   font-family: industrybold;
   font-weight: 700;
   color: #fff;
-  margin-top: 105px;
+  margin-top: 55px;
   width: 74%;
   text-align: right;
   text-transform: uppercase;
   letter-spacing: 5px;
-}
-
-@media screen and (max-width: 767px) {
-  #frontCarousel .title {
-    margin-top: 34px;
-  }
 }
 #frontCarousel .subtitle {
   color: #fff;
@@ -482,12 +510,27 @@ select option:focus {
   text-align: right;
   font-family: lato;
 }
+
+@media screen and (max-width: 768px) {
+  #frontCarousel .title {
+    margin-top: 34px;
+    font-size: 42px;
+    width: 80%;
+  }
+  #frontCarousel .subtitle {
+    color: #fff;
+    width: 90%;
+    text-align: right;
+    font-family: lato;
+  }
+}
+
 #frontCarousel .background {
   -webkit-background-size: cover;
   background-size: cover;
   background-position: top center;
-  height: 470px !important;
-}
+    height: 470px !important;
+  }
 
 #frontCarousel .item,
 #frontCarousel .active {
@@ -511,9 +554,18 @@ select option:focus {
 #frontCarousel .btn a {
   color: #fff;
 }
-
+@media screen and (max-width: 767px) {
+  #frontCarousel .copy {
+    margin-right: 90px;
+    margin-top: 30px;
+  }
+}
 @media screen and (max-width: 480px) {
-  #frontCarousel .content {
+  #frontCarousel .background {
+    height: 608px !important;
+    background-position: -139px;
+  }
+  #frontCarousel .copy {
     margin-right: 59px;
   }
   #frontCarousel .title {
@@ -521,10 +573,16 @@ select option:focus {
     font-size: 44px;
   }
 }
+@media screen and (max-width: 375px) {
+  
+ } 
 @media screen and (max-width: 320px) {
-  #frontCarousel .content {
-    margin-right: 67px;
-    margin-top: 45px;
+  #frontCarousel .background {
+    height: 429px !important;
+  }
+  #frontCarousel .copy {
+    margin-right: 23px;
+    margin-top: 19px;
   }
   #frontCarousel .title {
     font-size: 26px;
@@ -850,8 +908,6 @@ select option:focus {
 
 #quote.background {
   background-repeat: no-repeat;
-  max-height: 400px;
-  height: 100%;
 }
 #quote .content,
 #quote .author {
@@ -865,20 +921,38 @@ select option:focus {
   margin-top: 6%;
   text-align: center; 
 }
+#quote h5 > span {
+  font-size: 30px;
+  margin-bottom: 20px;
+  color: #cc0000;
+}
 #quote .author {
   font-size: 16px;
   font-style: italic;
   text-align: right;
+  margin-bottom: 40px;
+}
+
+
+@media screen and (max-width: 991px) {
+  #quote.background {
+    max-height: 500px;
+  }
+}
+@media screen and (max-width: 769px) {
+  #quote.background {
+    max-height: none;
+    -webkit-background-size: cover;
+    background-size: cover;
+  } 
+  #quote .content {
+    font-size: 35px;
+  }
 }
 @media screen and (max-width: 480px) {
   #quote .content {
     font-size: 30px;
     margin-top: 16%;
-  }
-}
-@media screen and (max-width: 991px) {
-  #quote.background {
-    max-height: 500px;
   }
 }
 @media screen and (max-width: 375px) {
@@ -887,11 +961,15 @@ select option:focus {
   }
 }
 @media screen and (max-width: 320px) {
+  #quote h5 span {
+    font-size: 17px;
+  }
   #quote .content {
-    font-size: 22px;
+    font-size: 14px;
   }
   #quote .author {
     margin-top: 10px;
+    font-size: 10px;
   }
 }
 
@@ -913,7 +991,7 @@ select option:focus {
 #speaker .subtitle {
   font-family: lato;
   font-size: 15px;
-  font-weight: 100;
+  font-weight: 400;
   margin-bottom: 20px;
   max-width: 450px;
 }
@@ -938,23 +1016,95 @@ select option:focus {
   padding: 20 0;
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (min-width: 768px) {
   #speaker .btn {
-    margin-top: 25%;
+  padding: 22px 73px;
+  margin-top: 22%;
   }
 }
-@media screen and (max-width: 480px) {
+
+@media screen and (max-width: 767px) {
   #speaker {
-    height: 335px;
+    height: 325px;
+  }
+  #speaker .btn {
+    margin-top: 25%;
+    padding: 22px 71px;
+  }
+  #speaker .title,
+  #speaker .subtitle {
+    text-align: center;
+  }
+  #speaker .subtitle {
+    max-width: none;
   }
   #speaker .btn {
     padding: 12px 69px;
     margin-top: 1%;
+    margin-left: 163px;
+    margin-bottom: 85px;
+  }
+  #speaker .btn a {
+    font-size: 28px;
+  }
+}
+@media screen and (max-width: 568px) {
+  #speaker {
+    height: 278px;
+  }
+  #speaker .btn {
+    margin-left: 72px;
+    margin-bottom: 37px;
+  }
+}
+@media screen and (max-width: 480px) {
+  #speaker {
+    height: 325px;
+  }
+  #speaker .btn {
+    margin-left: 21px;
+    margin-top: 4%;
+  }
+  #speaker .btn a {
+    font-size: 29px;
+  }
+}
+@media screen and (max-width: 414px) {
+  #speaker .btn {
+    padding: 18px 52px;
+    margin-left: 4px;
+  }
+}
+@media screen and (max-width: 375px) {
+  #speaker .btn {
+    padding: 12px 9px;
+    margin-left: 69px;
+  }
+  #speaker .btn a {
+    font-size: 19px;
+  }
+  #speaker {
+    height: 321px;
   }
 }
 @media screen and (max-width: 320px) {
+  #speaker {
+    height: 297px;
+  }
+  #speaker .title {
+    font-size: 30px;
+  }
   #speaker .btn {
-    padding: 12px 49px;
+    margin-left: 49px;
+  }
+}
+@media screen and (min-width: 992px) {
+  #speaker {
+    height: 200px;
+  }
+  #speaker .btn {
+    margin-top: 11%;
+    margin-left: 72px;
   }
 }
 /*.............. team .............*/
@@ -979,7 +1129,8 @@ select option:focus {
   margin-bottom: 60px;
 }
 .team {
-  height: 280px;
+  height: 326px;
+  margin: 0 5px;
 }
 #homeCarousel a,
 #aboutCarousel a {
@@ -991,7 +1142,7 @@ select option:focus {
 }
 .team .member .img {
   width: 100%;
-  max-height: 200px !important;
+  max-height: 265px !important;
   overflow: hidden;
 }
 .team .member .img img {
@@ -1028,21 +1179,65 @@ select option:focus {
   opacity: 0.4;
   background: #000;
   border-radius: 3px;
+  height: 37px;
 }
 #team_carousel .carousel-control.right {
   left: auto;
   right: 1px;
 }
+
+#homeCarousel .slick-slider {
+  height: 319px;
+}
+
+@media screen and (min-width: 768px) {
+  .team .member .img {
+    max-height: 184px !important;
+  }
+}
+@media screen and (max-width: 767px) {
+  .team {
+    height: 500px;
+  }
+  .team .member .img {
+    max-height: 443px !important;
+  }
+  #team_carousel .carousel-control {
+    top: 217px;
+    width: 11%;
+  }
+}
+@media screen and (max-width: 667px) {
+  #team_carousel .carousel-control {
+    width: 6%;
+  }
+}
+@media screen and (max-width: 568px) {
+  #team_carousel .carousel-control {
+    width: 8%;
+  }
+}
 @media screen and (max-width: 480px) {
   #team .desktop {
     display: none;
+  }
+  .team {
+    height: 380px;
+  }
+  .team .member .img {
+    max-height: 325px !important;
   }
 }
 @media screen and (max-width: 320px) {
   .team .member .meta {
     min-height: 79px;
   }
-} 
+}
+@media screen and (min-width: 1200px) {
+  .team .member .img {
+    max-height: 260px !important;
+  }
+}
 /* = About Page
 -------------------------------------------------------------- */
 #page-about {
@@ -1058,7 +1253,7 @@ select option:focus {
 }
 #about_heading .title {
   text-align: center;
-  margin-top: 12%;
+  margin-top: 250px;
 }
 #about_heading .title h1 {
   text-transform: uppercase;
@@ -1067,22 +1262,47 @@ select option:focus {
   font-family: industryultra;
   letter-spacing: 23px;
 }
-@media screen and (max-width: 768px) {
-  #about_heading .title h1 {
-    font-size: 76px;
-  }
-}
+
 @media screen and (max-width: 992px) {
   #about_heading .background {
     max-height: 290px;
   }
   #about_heading .title h1 {
     font-size: 76px;
+    text-shadow: 1px 1px 0px rgba(150, 150, 150, 1);
+  }
+}
+@media screen and (max-width: 768px) {
+  #about_heading .title {
+    margin-top: 182px;
+  }
+  #about_heading .title h1 {
+    font-size: 64px;
+  }
+}
+@media screen and (max-width: 480px) {
+  #about_heading .title h1 {
+    font-size: 56px;
+    letter-spacing: 7px
+  }
+  #about_heading .title {
+    margin-top: 177px;
+  }
+}
+@media screen and (max-width: 375px) {
+  #about_heading .title h1 {
+    font-size: 34px;
+    margin-top: 146px;
+    letter-spacing: 7px
   }
 }
 /*.............. content .............*/
+#about_content {
+  padding-bottom: 60px;
+}
 #about_content .heading {
   text-align: center;
+  margin: 90px auto 60px;
 }
 #about_content .heading h2 {
   text-transform: uppercase;
@@ -1097,7 +1317,7 @@ select option:focus {
 #about_content .content p {
   color: #fff;
   font-family: lato;
-  font-size: 27px;
+  font-size: 21px;
   font-weight: 300;
   text-align: center;
 }
@@ -1126,6 +1346,15 @@ select option:focus {
   font-weight: 400;
   color: #fff;
   text-transform: uppercase;
+}
+@media screen and (max-width: 375px) {
+  #about_content .heading {
+    font-size: 10px;
+    margin: 46px auto 32px;
+  }
+  #about_content .content p {
+    font-size: 15px;
+  }
 }
 /*.............. carousel .............*/
 #about_carousel {
@@ -1160,8 +1389,8 @@ select option:focus {
   height: auto;
 }
 .team .member .position {
-  font-weight: 200;
-  font-size: 10px;
+  font-weight: 400;
+  font-size: 9px;
 }
 .team .member .description {
   font-size: 10px;
@@ -1230,7 +1459,6 @@ select option:focus {
 #page_speaker {
   background: #cc0000;
   color: #fff;
-  height: 240px;
 }
 #page_speaker .title {
   font-family: lato;
@@ -1243,7 +1471,7 @@ select option:focus {
 #page_speaker .subtitle {
   font-family: lato;
   font-size: 15px;
-  font-weight: 100;
+  font-weight: 400;
   margin-bottom: 20px;
   max-width: 450px;
 }
@@ -1260,16 +1488,114 @@ select option:focus {
   text-transform: uppercase;
   text-decoration: none;
 }
-
-@media screen and (max-width: 768px) {
+@media screen and (min-width: 768px) {
+  #page_speaker {
+    height: 224px;
+  }
   #page_speaker .btn {
-    margin-top: 25%;
+    font-size: 17px;
+    padding: 17px 52px;
+    margin-top: 65px;
+    margin-bottom: 40px;
+    margin-left: 14px;
   }
 }
+@media screen and (max-width: 767px) {
+  #page_speaker .btn {
+    margin-top: 25%;
+    padding: 22px 66px;
+  }
+  #page_speaker .title,
+  #page_speaker .subtitle {
+    text-align: center;
+  }
+  #page_speaker .subtitle {
+    max-width: none;
+  }
+  #page_speaker .btn {
+    font-size: 17px;
+    padding: 17px 52px;
+    margin-top: 65px;
+    margin-bottom: 40px;
+    margin-left: 174px;
+  }
+  #page_speaker .btn a {
+    font-size: 28px;
+  }
+}
+@media screen and (max-width: 667px) {
+  #page_speaker .btn {
+    margin-left: 134px
+  }
+}
+@media screen and (max-width: 568px) {
+  #page_speaker .btn {
+    margin-top: 32px;
+    margin-bottom: 46px;
+    margin-left: 93px;
+  }
+}
+@media screen and (max-width: 480px) {
+  #page_speaker .btn {
+    margin-left: 94px;
+  }
+  #page_speaker .btn a {
+    font-size: 17px;
+  }
+}
+@media screen and (max-width: 414px) {
+  #page_speaker .btn {
+    margin-left: 62px;
+  }
+}
+@media screen and (max-width: 375px){
+  #page_speaker .title {
+    font-size: 30px;
+  }
+  #page_speaker .btn {
+    padding: 17px 37px;
+    margin-left: 57px;
+  } 
+}
+@media screen and (max-width: 320px) {
+  #page_speaker .btn {
+    margin-left: 20px;
+  }
+}
+@media screen and (min-width: 1200px) {
+  #page_speaker .btn {
+    padding: 24px 105px;
+    margin-left: 23px;
+  }
+  #page_speaker .btn a {
+    font-size: 28px;
+  }
+}
+#about_media {
+  color: #fff;
+  margin-bottom: 60px;
+}
+#about_media h2 {
+  font-family: industryblack;
+  text-align: center;
+  font-weight: 200;
+  text-transform: uppercase;
+  letter-spacing: 8px;
+  font-size: 36px;
+  margin: 100px auto;
+
+}
+#about_media .video_title {
+  font-family: lato;
+  text-align: center;
+  font-size: 20px;
+  margin: 20px auto;
+}
+
 /* = News Page
 -------------------------------------------------------------- */
 
-#news_heading .background {
+#upcoming-events_heading .background {
   background-repeat: no-repeat;
   max-height: 450px;
   height: 100%;
@@ -1277,84 +1603,83 @@ select option:focus {
   background-position: 100%;
   width: 100%;
 }
-#news_heading .title {
+#upcoming-events_heading .title {
   text-align: center;
   margin-top: 12%;
 }
-#news_heading .title h1 {
+#upcoming-events_heading .title h1 {
   text-transform: uppercase;
   font-size: 110px;
   color: #fff;
   font-family: industryultra;
   letter-spacing: 23px;
 }
-#news_content .img {
+#upcoming-events_content .img {
   -webkit-background-size: cover;
   background-size: cover;
   background-position: center;
 }
 @media screen and (max-width: 768px) {
-  #news_heading .title h1 {
+  #upcoming-eventss_heading .title h1 {
     font-size: 76px;
   }
 }
 @media screen and (max-width: 992px) {
-  #news_heading .background {
+  #upcoming-events_heading .background {
     max-height: 290px;
   }
-  #news_heading .title h1 {
+  #upcoming-events_heading .title h1 {
     font-size: 76px;
   }
 }
 
 /*.............. content/posts .............*/
-#news_content {
+#upcoming-events_content {
   font-family: lato;
   color: #fff;
 }
-#news_content .post.content {
+#upcoming-events_content .post.content {
   margin-bottom: 35px;
 }
-#news_content .title h2 {
+#upcoming-events_content .title h2 {
   font-weight: 100;
 }
-#news_content .img {
+#upcoming-events_content .img {
   width: 100%;
   height: 240px;
   background-color: #bababa;
 }
-#news_content .date {
+#upcoming-events_content .date {
   font-size: 11px;
   font-weight: 400;
   color: #565555;
   margin-bottom: 5px;
 }
-#news_content .title {
+#upcoming-events_content .title {
   font-size: 14px;
   font-weight: 400;
   text-transform: uppercase;
-  margin: 20px 0;
 }
-#news_content .excerpt {
+#upcoming-events_content .excerpt {
   font-size: 11px;
   line-height: 2;
   font-weight: 100;
 }
-#news_content .read-more {
+#upcoming-events_content .read-more {
   display: none;
 }
-#news_content .read a {
+#upcoming-events_content .read a {
   font-size: 11px;
   font-weight: 100;
   color: #cc0000;
   text-decoration: none;
 }
-#news_content ul,
-#news_content .sidebar.top ul {
+#upcoming-events_content ul,
+#upcoming-events_content .sidebar.top ul {
   list-style: none;
 }
-#new_content ul li,
-#news_content .sidebar.top ul li {
+/*#upcoming-events_content ul li,*/
+#upcoming-events_content .sidebar.top ul li {
   display: inline-block;
 }
 #pagination {
@@ -1375,27 +1700,27 @@ select option:focus {
 }
 
 /*.............. top sidebar .............*/
-#news_content .sidebar.top {
+#upcoming-events_content .sidebar.top {
   width: 100%;
   height: 420px;
   background-color: #f2f2f2;
   margin-top: 30px;
 }
-#news_content .sidebar.top ul {
+#upcoming-events_content .sidebar.top ul {
   padding-left: 0;
 }
-#news_content .sidebar.top ul li {
+#upcoming-events_content .sidebar.top ul li {
   margin-right: 15px;
   margin-left: 15px;
 }
-#news_content .sidebar.top ul li a {
+#upcoming-events_content .sidebar.top ul li a {
   color: #fff;
 }
-#news_content .sidebar.top ul li a i {
+#upcoming-events_content .sidebar.top ul li a i {
   font-size: 20px;
   padding: 20px;
 }
-#news_content .square {
+#upcoming-events_content .square {
   background-color: #5a5a5a;
   border-radius: 0;
   width: 63px;
@@ -1404,16 +1729,16 @@ select option:focus {
   text-align: center;
   margin-top: 20px;
 }
-#news_content .sidebar.top .title,
-#news_content .sidebar.top .subtitle {
+#upcoming-events_content .sidebar.top .title,
+#upcoming-events_content .sidebar.top .subtitle {
   text-align: center;
 }
-#news_content .sidebar.top .title {
+#upcoming-events_content .sidebar.top .title {
   font-size: 20px;
   color:  #222222;
   margin-top: 20px; 
 }
-#news_content .sidebar.top .subtitle {
+#upcoming-events_content .sidebar.top .subtitle {
   color:  #141414;
   font-size: 11px; 
   font-weight: 400;
@@ -1421,23 +1746,23 @@ select option:focus {
   max-width: 205px;
    margin: 0 auto; 
 }
-#news_content .sidebar.top .social {
+#upcoming-events_content .sidebar.top .social {
   padding-top: 40px;
 }
-#news_content .sidebar.top .btn {
+#upcoming-events_content .sidebar.top .btn {
   border-radius: 3px;
   background-color:  #cc0000;
   width: 160px;
   height: 40px;
   margin-top: 20px;
 }
-#news_content .sidebar.top .btn a {
+#upcoming-events_content .sidebar.top .btn a {
   color: #fff;
   text-transform: uppercase;
 }
 /*.............. middle sidebar .............*/
 
-#news_content .sidebar.middle {
+#upcoming-events_content .sidebar.middle {
   width: 100%;
   min-height: 235px;
   background-color: #565555;
@@ -1445,28 +1770,28 @@ select option:focus {
   text-align: center;
   margin-bottom: 40px;
 }
-#news_content .sidebar.middle .title,
-#news_content .sidebar.middle .subtitle,
-#news_content .sidebar.middle .content {
+#upcoming-events_content .sidebar.middle .title,
+#upcoming-events_content .sidebar.middle .subtitle,
+#upcoming-events_content .sidebar.middle .content {
   text-align: left;
   color:  #ffffff;
   margin: 0 45px; 
 }
-#news_content .sidebar.middle .title {
+#upcoming-events_content .sidebar.middle .title {
   font-size: 18px;
   padding-top: 45px;
   margin-bottom: 10px;
 }
-#news_content .sidebar.middle .subtitle {
+#upcoming-events_content .sidebar.middle .subtitle {
   font-size: 20px; 
   font-weight: 400;
   line-height: 24px;
   margin-bottom: 10px;
 }
-#news_content .sidebar.middle .content {
+#upcoming-events_content .sidebar.middle .content {
   font-size: 11px;
 }
-#news_content .sidebar.middle .btn {
+#upcoming-events_content .sidebar.middle .btn {
   border-radius: 0px;
   background-color:  #cc0000;
   width: 100%;
@@ -1475,52 +1800,52 @@ select option:focus {
   padding: 18px 40;
   text-align: left;
 }
-#news_content .sidebar.middle .btn a {
+#upcoming-events_content .sidebar.middle .btn a {
   color: #fff;
   text-transform: uppercase;
 }
 
-#news_content .sidebar.bottom .title {
+#upcoming-events_content .sidebar.bottom .title {
   margin-top: 40px;
   font-size: 20px;
   border-bottom: 1px solid #cc0000;
   padding-bottom: 20px;
 }
-#news_content .sidebar.bottom .subtitle {
+#upcoming-events_content .sidebar.bottom .subtitle {
   font-size: 11px;
 }
 @media screen and (max-width: 991px) {
-  #news_content .sidebar.bottom {
+  #upcoming-events_content .sidebar.bottom {
     margin-bottom: 40px;
   }
 }
 /*.............. speaker cta  .............*/
-.page-news #speaker {
+.page-upcoming-events #speaker {
   background-color: #cc0000;
   color: #fff;
 }
-.page-news #speaker .btn {
+.page-upcoming-events #speaker .btn {
   background-color: #fff;
 }
-.page-news #speaker .btn a {
+.page-upcoming-events #speaker .btn a {
   color: #cc0000;
   font-size: 30px;
 }
 @media screen and (max-width: 768px) {
-  .page-news #speaker .btn a {
+  .page-upcoming-events #speaker .btn a {
     font-size: 18px;
   }
-  .page-news #speaker .btn {
+  .page-upcoming-events #speaker .btn {
     padding: 12px 75px;
   }
 }
 @media screen and (max-width: 991px) {
-  .page-news #speaker .btn a {
+  .page-upcoming-events #speaker .btn a {
     font-size: 16px;
   }
 }
 @media screen and (max-width: 1024px) {
-  .page-news #speaker .btn a {
+  .page-upcoming-events #speaker .btn a {
     font-size: 24px;
   }
 }
@@ -1575,6 +1900,24 @@ select option:focus {
     font-size: 76px;
   }
 }
+@media screen and (max-width: 480px) {
+  #media_heading .background {
+    background-position: left top;
+  }
+  #media_heading .title {
+    margin-top: 150px;
+  }
+  #media_heading .title h1 {
+    font-size: 56px;
+    letter-spacing: 7px
+  }
+}
+@media screen and (max-width: 375px) {
+  #media_heading .title h1 {
+    font-size: 34px;
+    margin-top: 146px;
+  }
+}
 /*.............. featured media element  .............*/
 
 #featured_media {
@@ -1592,8 +1935,20 @@ select option:focus {
   text-align: center;
 }
 @media screen and (max-width: 768px) {
-  #feature_media iframe {
+  #featured_media iframe {
     height: 434px;
+  }
+}
+@media screen and (max-width: 480px) {
+  
+}
+@media screen and (max-width: 375px) {
+  #featured_media {
+    margin-bottom: 28px;
+  }
+  #featured_media iframe {
+    width: 297px;
+    height: 248px;
   }
 }
 
@@ -1601,11 +1956,9 @@ select option:focus {
 
 #mediafeed .photo-box {
   text-align: center;
-  min-height: 422px;
-  background-color: #fff;
-  border: 1px solid;
-  margin-bottom: 60px;
-  border-radius: 4px;
+  min-height: 304px;
+  margin-bottom: 20;
+  border-radius: 4px;;
 }
 #mediafeed .likes {
   font-family: industrymedium;
@@ -1617,38 +1970,37 @@ select option:focus {
   font-size: 15px;
   padding: 0 5px 10px;
   color: #000;
-  position: relative;
-    top: 35px;
-    left: 180px;
-    margin-right: 17px;
-    transform: translate(-50%, -50%)
+
 }
 #mediafeed img {
   margin-top: 10px;
   width: 300px; 
 }
 
-/* = Events Page
+/* = Patriot Tour Page
 -------------------------------------------------------------- */
 /*.............. heading  .............*/
 #patriot-tour_heading .background {
   background-repeat: no-repeat;
-  max-height: 450px;
+  max-height: 456px;
   height: 100%;
   background-size: cover;
-  background-position: 100%;
+  background-position: top;
   width: 100%;
 }
 #patriot-tour_heading .title {
   text-align: center;
-  margin-top: 12%;
-}
+  margin-top: 205px;
+} 
 #patriot-tour_heading .title h1 {
   text-transform: uppercase;
   font-size: 110px;
   color: #fff;
   font-family: industryultra;
   letter-spacing: 23px;
+}
+#patriot-tour_content .tour_featured iframe {
+  height: 307px;
 }
 @media screen and (max-width: 992px) {
   #patriot-tour_heading .background {
@@ -1657,54 +2009,92 @@ select option:focus {
   #patriot-tour_heading .title h1 {
     font-size: 76px;
   }
+  #patriot-tour_content .tour_featured iframe {
+    height: 64%;
+  }
 }
-#patriot-tour_content .meta {
+@media screen and (min-width: 768px) {
+  #patriot-tour_content .tour_featured iframe {
+    height: 26%;
+  }
+}
+@media screen and (max-width: 768px) {
+  #patriot-tour_heading .title {
+    margin-top: 181px;
+  }
+  #patriot-tour_heading .title h1 {
+    font-size: 64px;
+    letter-spacing: 11px;
+  }
+  #patriot-tour_content .tour_featured iframe {
+    height: 19%;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  #patriot-tour_content .tour_featured iframe {
+    height: 55%;
+  }
+}
+@media screen and (max-width: 480px) {
+  #patriot-tour_heading .title h1 {
+    font-size: 56px;
+  }
+  #patriot-tour_content .tour_featured iframe {
+    height: 39%;
+  }
+}
+@media screen and (max-width: 375px) {
+  #patriot-tour_heading .title h1 {
+    font-size: 34px;
+  }
+}
+#upcoming-events_content .meta {
   background-color: #f2f2f2;
   color: #000;
-  text-align: center;
   min-height: 80px;
   font-family: lato;
+  margin-bottom: 20px;
 }
-#patriot-tour_content .meta .title {
+#upcoming-events_content .meta .title {
   padding-top: 18px;
   font-weight: 900;
 }
-#patriot-tour_content .meta .date {
+#upcoming-events_content .meta .date {
   font-size: 11px;
   font-weight: 300;
   padding-top: 10px;
 }
-#patriot-tour_posts {
-  margin: 40px 0;
+#upcoming-events_posts {
+  margin: 30px 0;
 }
-#patriot-tour_posts .taste {
+#upcoming-events_posts .taste {
   height: 200px;
 }
-#patriot-tour_posts .taste .post_thumb img {
+#upcoming-events_posts .taste .post_thumb img {
   height: 100% !important;
   width: 100%;
 }
-#patriot-tour_copy {
-  margin-top: 40px;
+#patriot-tour_content .featured_copy {
+  margin-bottom: 40px;
 }
 #patriot-tour_copy p {
   color: #fff;
   font-family: lato;
-  font-size: 27px;
   font-weight: 300;
-  text-align: center;
+}
+#patriot-tour_copy p strong {
+  font-weight: 900;
 }
 #instagram h2 {
   color: #fff;
-  font-family: industryultra;
+  font-family: industrymedium;
   text-align: center;
-  margin-bottom: 20px;
+  margin-bottom: 90px;
 }
 #instafeed .photo-box {
   text-align: center;
-  min-height: 250px;
-  background-color: #fff;
-  border: 1px solid;
+  min-height: 164px;
   margin-bottom: 60px;
   border-radius: 4px;
 }
@@ -1718,11 +2108,11 @@ select option:focus {
   font-size: 10px;
   padding: 0 5px 10px;
   color: #000;
-  position: relative;
-    top: 35px;
-    left: 83px;
-    margin-right: 17px;
-    transform: translate(-50%, -50%)
+} 
+#instagram,
+#social {
+  padding-bottom: 15px;
+  background-color: #1d1d1d;
 }
 #instafeed img {
   margin-top: 10px;
@@ -1751,9 +2141,279 @@ select option:focus {
   display: inline-block;
   padding-right: 20px;
 }
+
+#patriot-tour_content h2,
+#team h2,
+#sponsors .sponsors h2 {
+  font-family: industrymedium;
+  color: #fff;
+  font-size: 36px;
+  margin: 80px auto;
+  text-align: center;
+}
+#social .social_links ul {
+  padding-left: 0;
+  padding-bottom: 40px;
+}
+#social .social_links  ul li {
+  display: inline-block;
+}
+#social .social_links ul li a {
+  color: #fff;
+  font-size: 40px;
+  padding: 0 15px;
+}
+#social .title h2 {
+  color: #fff;
+  text-align: center;
+  font-family: industrymedium;
+}
+
+@media screen and (max-width: 480px) {
+  #patriot-tour_heading .background {
+    background-position: top center;
+  }
+  #patriot-tour_heading .title {
+    margin-top: 150px;
+  }
+  #patriot-tour_copy p {
+    font-size: 15px;
+  }
+  #partners .btn.partner {
+    width: 70%;
+  }
+  #instafeed img {
+    width: 260px;
+  }
+}
+#patriot-tour_content {
+  margin-bottom: 45px;
+  background-color: #1d1d1d;
+}
+#patriot-tour_content .logo_box {
+  background-color: #fff;
+  border-radius: 4px;
+  margin-top: 40px;
+  text-align: center;
+  width: 50%;
+  margin-left: auto;
+  margin-right: auto;
+}
+#patriot-tour_content .logo_box h2 {
+  color: #cc0000;
+  padding-top: 25px;
+  margin: 0 auto;
+}
+#patriot-tour_content .logo_box img {
+  width: 80%;
+}
+#patriot-tour_content .logo_box .button {
+  text-align: center;
+  padding-top: 10px;
+  padding-bottom: 20px;
+  width: 50%;
+  margin: 0 auto;
+}
+#patriot-tour_content .button .btn {
+  background-color: #cc0000;
+  color: #fff;
+  font-size: 28px;
+  font-family: industrymedium;
+}
+#panels {
+  color: #cc0000;
+  background-color: #1d1d1d;
+}
+#panels .panel_box {
+  background-color: #fff;
+  border-radius: 4px;
+  min-height: 330px;
+  margin-bottom: 25px;
+}
+#panels .title {
+  text-align: center;
+  font-family: industrybold;
+  padding: 18px;
+}
+#panels .title h2 {
+  margin-bottom: 30px;
+}
+#panels .content {
+  font-family: lato;
+  min-height: 140px;
+}
+#panels .content .logo img {
+  margin-bottom: 20px;
+}
+#panels > div > div > div:nth-child(1) > div > div > div.content > p {
+  font-size: 20px;
+  text-transform: uppercase;
+}
+#panels > div > div > div:nth-child(3) > div > div > div.content > p {
+  font-size: 16px;
+}
+#panels .button .btn {
+  background-color: #cc0000;
+  color: #fff;
+  font-size: 22px;
+  font-family: industrymedium;
+}
+#panels img {
+/*  width: 100%;
+*/}
+#team,
+#sponsors {
+    text-align: center;
+    background-color: #1d1d1d;
+  }
+#team .tmembers ul,
+#sponsors .links ul {
+  padding-left: 0px;
+  margin-left: auto;
+  margin-right: auto;
+}
+#team .tmembers ul li,
+#sponsors .links ul li {
+  margin-bottom: 20px;
+}
+#team .tmembers ul li,
+#sponsors .links ul li  {
+  display: inline-block;
+  width: 250px;
+  margin: 0 25px 20px;
+}
+#team > div > div:nth-child(2) > div > ul > li > a > div > div > div.img {
+  max-height: 274px !important;
+}
+@media screen and (max-width: 767px) {
+  #panels {
+    margin-top: 60px;
+  }
+  #panels .panel_box {
+    width: 50%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  #team .tmembers ul li {
+    width: 35%;
+    margin: 0 25px 0;
+  }
+  #team .team {
+    height: 385px;
+  }
+}
+@media screen and (min-width: 992px) {
+  #panels > div > div > div:nth-child(3) > div > div > div.content > p {
+    font-size: 16px;
+  }
+}
+@media screen and (min-width: 768px) {
+  #panels > div > div > div:nth-child(3) > div > div > div.content > p {
+    font-size: 13px;
+  }
+}
+@media screen and (max-width: 736px) {
+ #patriot-tour_content .logo_box .button {
+    width: 90%;
+  }
+}
+@media screen and (max-width: 667px) {
+ /* #patriot-tour_content {
+    height: 1047px;
+  }*/
+  #patriot-tour_content .tour_featured iframe {
+    height: 354px;
+    margin-bottom: 20px;
+  }
+}
+@media screen and (max-width: 568px) {
+ /* #patriot-tour_content {
+    height: 960px;
+  }*/
+  #patriot-tour_content h2, 
+  #team h2, 
+  #sponsors .sponsors h2 {
+    font-size: 31px;
+    margin-bottom: 20px;
+  }
+  #patriot-tour_content .logo_box {
+    width: 90%;
+  }
+  #patriot-tour_content .button .btn {
+    font-size: 23px;
+  }
+  #patriot-tour_content .tour_featured iframe {
+    height: 302px;
+  }
+  #panels .panel_box {
+    width: 60%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  #team .tmembers ul li {
+    width: 43%;
+    margin: 0 12px 20px
+  }
+}
+@media screen and (max-width: 480px) {
+/*  #patriot-tour_content {
+    height: 1085px;
+  }*/
+  #patriot-tour_content .logo_box {
+    width: 90%;
+  }
+  #patriot-tour_content .button .btn {
+    font-size: 23px;
+  }
+  #patriot-tour_content .tour_featured iframe {
+    height: 163px;
+  }
+  #panels .panel_box {
+    width: 100%;
+  }
+  #team .tmembers ul li {
+    width: 86%;
+    margin: 0 0 20px;
+  }
+}
+@media screen and (max-width: 414px) {
+  #patriot-tour_content .tour_featured iframe {
+    height: 212px;
+  }
+}
+@media screen and (max-width: 320px) {
+/*  #patriot-tour_content {
+    height: 1085px;
+  }
+  #patriot-tour_content h2, 
+  #team h2, 
+  #sponsors .sponsors h2 {
+    font-size: 31px;
+    margin-bottom: 20px;
+  }
+  #patriot-tour_content .logo_box {
+    width: 90%;
+  }
+  #patriot-tour_content .button .btn {
+    font-size: 23px;
+  }
+  #patriot-tour_content .tour_featured iframe {
+    height: 163px;
+    margin-bottom: 20px;
+  }
+  #panels .panel_box {
+    width: 100%;
+    margin-left: auto;
+   margin-right: auto;
+  }
+  #team .tmembers ul li {
+    width: 86%;
+    margin: 0 0 20px;
+  }*/
+}
+
 /* = Support and Join Page
 -------------------------------------------------------------- */
-
 /*.............. heading  .............*/
 #support_heading .background,
 #join_heading .background {
@@ -1767,7 +2427,7 @@ select option:focus {
 #support_heading .title,
 #join_heading .title {
   text-align: center;
-  margin-top: 12%;
+  margin-top: 205px;
 }
 #support_heading .title h1,
 #join_heading .title h1 {
@@ -1785,6 +2445,22 @@ select option:focus {
   #support_heading .title h1,
   #join_heading .title h1 {
     font-size: 76px;
+  }
+}
+@media screen and (max-width: 480px) {
+  #join_heading .title h1 {
+    font-size: 56px;
+  }
+  #join_heading .title {
+    text-align: center;
+    margin-top: 150px;
+  }
+}
+@media screen and (max-width: 375px) {
+  #join_heading .title h1 {
+    font-size: 34px;
+    margin-top: 146px;
+    letter-spacing: 7px
   }
 }
 /*.............. content  .............*/
@@ -1847,8 +2523,7 @@ select option:focus {
   width: 33%;
   overflow: hidden;
 }
-#gravity_form .button,
-#gravity_form .meta {
+#gravity_form .button {
   float: left;
   max-width: 100%;
 }
@@ -1909,7 +2584,54 @@ select option:focus {
   padding-right: 20px;
   margin-bottom: 25px;
 }
-
+@media screen and (max-width: 768px) {
+  #gravity_form {
+    text-align: center;
+  }
+  #gravity_form .button {
+    float: none;
+  }
+  #gravity_form .contact_links {
+    width: 100%;
+  }
+  #gravity_form .address .button,
+  #gravity_form .email .button,
+  #gravity_form .phone .button {
+    float: left;
+  }
+  #gravity_form .contact_links ul > li {
+    width: 30%;
+  }
+}
+@media screen and (max-width: 480px) {
+  #join_content .heading h2 {
+    font-size: 2.5em;
+  }
+  #join_content .content p {
+    font-size: 23px;
+  }
+}
+@media screen and (max-width: 375px) {
+  #gravity_form .grav_form ul li {
+    padding-right: 0;
+  }
+  .grav_form .ginput_container input {
+    width: 250px;
+  }
+  .welcome.graphic .graphic_copy {
+    font-size: 38px;
+    padding-top: 29px;
+  }
+  #gravity_form .button {
+    margin-right: 0;
+  }
+  #join_content .heading h2 {
+    font-size: 2em;
+  }
+  #join_content .content p {
+    font-size: 15px;
+  }
+}
 /* = Members Single and General Single
 -------------------------------------------------------------- */
 
@@ -1941,7 +2663,7 @@ select option:focus {
 #single_page .post_category,
 #single_page .content p {
   font-family: lato;
-  font-weight: 100;
+  font-weight: 400;
 }
 #single_page .metahead a,
 #single_page .post_category a,
@@ -2016,6 +2738,139 @@ select option:focus {
   display: none;
 }
 
+/* = Products / Store
+-------------------------------------------------------------- */
+#intro {
+  background-color: #fff;
+}
+#intro,
+#wheretobuy {
+  padding-bottom: 60px;
+}
+#intro .title {
+  margin: 30px auto 10px;
+}
+
+#intro .title h2,
+#intro .subtitle h3,
+#intro .description,
+#intro .intro_image {
+  font-family: lato;
+  color: #777777;
+  text-align: center;
+}
+#intro .title h2 {
+  text-transform: uppercase;
+  font-weight: 300;
+  font-size: 30px;
+}
+#intro .subtitle h3 {
+  color: #cc0000;
+  font-size: 50px;
+  margin-top: 10px;
+}
+
+#intro .description {
+  width: 75%;
+  margin: 20px auto 40px;
+  font-weight: 300;
+}
+#intro .description strong {
+  font-weight: 600;
+}
+#product .also_feature,
+#product .featured_product,
+#product .product_title,
+#product .product_description {
+  color: #fff;
+  font-family: lato;
+  text-align: center;
+}
+#product .also_feature {
+  font-size: 30px;
+  margin: 40px auto;
+}
+#product .featured_product h2{
+  font-size: 60px;
+  font-weight: 600;
+  margin: 40px auto;
+  text-transform: uppercase;
+  color: #cc0000;
+}
+#product .hero_image {
+  margin-bottom: 60px;
+}
+#product .product_title {
+  font-family: industryultra;
+  font-size: 30px;
+  text-transform: uppercase;
+  margin-bottom: 20px;
+}
+#product .product_description {
+  margin-top: 10px;
+  min-height: 85px;
+  margin-bottom: 10px;
+}
+#intro .intro_button,
+#product .product_button {
+  text-align: center;
+  margin: 20px auto;
+}
+#product .product_button {
+  margin-bottom: 40px;
+}
+#intro .intro_button .btn,
+#product .btn {
+  background-color: #cc0000;
+}
+#intro .intro_button .btn a,
+#product .btn a {
+  color: #fff;
+  text-decoration: none;
+}
+#wheretobuy .title h2 {
+  text-align: center;
+  font-size: 40px;
+  font-family: industryultra;
+  color: #fff;
+}
+#wheretobuy .title {
+  margin: 80px auto;
+}
+#wheretobuy ul {
+  padding-left: 0;
+}
+#wheretobuy .vendors {
+  text-align: center;
+}
+#wheretobuy .vendor_logo { 
+  width: 32%;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 42%;
+}
+.flex-direction-nav .flex-next { 
+  right: 0 !important; 
+  margin-right: -15px; 
+  opacity: 1 !important; 
+}
+.flex-direction-nav .flex-prev { 
+  left: 0 !important; 
+  opacity: 1 !important; 
+  margin-left: -15px; 
+}
+.flexslider { 
+  margin: 0 auto; 
+}
+@media screen and (max-width: 767px) {
+  #product .featured_product h2 {
+    font-size: 36px;
+  }
+  #wheretobuy .vendor_logo {
+    width: 49%;
+    max-width: 53%;
+  }
+}
 /* = Footer
 -------------------------------------------------------------- */
 .bottom {
@@ -2024,22 +2879,16 @@ select option:focus {
 .bottom.background {
   background-repeat: no-repeat;
   background-position: top center;
-  height: 307px;
-  max-height: 100%;
-  -webkit-background-size: 100%;
-  background-size: 100%;
+  -webkit-background-size: cover;
+  background-size: cover;
 }
 @media screen and (max-width: 768px) {
-  .bottom.background {
-    height: 600px; 
-  }
   .bottom {
     margin-top: 0;
   }
 }
 @media screen and (max-width: 991px) {
   .bottom.background {
-    max-height: 600px;
     background-repeat: initial;
   }
 }
@@ -2048,7 +2897,7 @@ footer .top {
 }
 .bottom .cta.title {
   font-family: lato;
-  font-weight: 100;
+  font-weight: 300;
   font-size: 30px;
   letter-spacing: 8px;
   text-transform: uppercase;
@@ -2057,7 +2906,7 @@ footer .top {
 .bottom .cta.subtitle {
   font-family: lato;
   font-size: 12px;
-  font-weight: 100;
+  font-weight: 300;
   text-align: center;
   margin-top: 20px;
 }
@@ -2131,49 +2980,11 @@ footer .top {
   padding-right: 20px;
 }
 
-@media screen and (max-width: 768px) {
-  .bottom .btn.partner {
-    margin-bottom: 20px;
-  }
-  .bottom.background {
-    max-height: 410px;
-  }
-}
-@media screen and (max-width: 1024px) {
-  .bottom .partners.center ul li {
-    width: 32%;
-  }
-}
-@media screen and (max-width: 480px) {
-  .bottom.background {
-    max-height: 519px;
-  }
-  .bottom .btn.partner {
-    margin-top: 27px;
-  }
-}
-@media screen and (max-width: 375px) {
-  .bottom.background {
-    max-height: 530px;
-  }
-}
-@media screen and (max-width: 330px) {
-  .bottom.background {
-    max-height: 561px;
-  }
-  .btn.partner span {
-    font-size: 21px;
-  }
-  .bottom .btn.partner {
-    padding: 8px 18px;
-    
-  }
-}
 .bottom .copyright {
   font-family: lato;
-  font-weight: 100;
+  font-weight: 400;
   font-size: 10px;
-  margin-top: 8px;
+  margin-top: 62px;
 }
 .bottom .copyright a,
 .bottom .copyright a:hover,
@@ -2184,17 +2995,383 @@ footer .top {
 .bottom .footer.menu {
   padding-top: 0;
 }
-.bottom .footer.menu ul {
+/*.bottom .footer.menu ul {
   text-align: right;
-}
+}*/
 .bottom .footer.menu ul li a {
   color: #fff;
   font-family: lato;
-  font-weight: 100;
+  font-weight: 400;
   font-size: 10px;
   text-transform: capitalize;
 }
 
+}
+.bottom .title,
+.bottom .address,
+.bottom .phone,
+.bottom .general_email,
+.bottom .support_email {
+  font-family: lato;
+  font-weight: 400;
+}
+
+.bottom .title,
+.bottom .header {
+  font-family: lato;
+  text-align: left;
+  text-transform: uppercase;
+  border-bottom: 1px solid #777777;
+  padding-bottom: 5px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 9px;
+}
+.bottom .title {
+  min-height: 18px;
+  vertical-align: text-bottom;
+}
+.bottom .header {
+  font-size: 10px;
+  border-bottom: none;
+  text-align: center;
+}
+.bottom .address,
+.bottom .phone,
+.bottom .general_email,
+.bottom .support_email {
+  text-align: left;
+  float: left;
+  padding: 0 5px;
+  font-size: 9px;
+  width: 25%;
+}
+.bottom .address,
+.bottom .phone a,
+.bottom .general_email a,
+.bottom .support_email a {
+  color: #fff;
+  text-decoration: none;
+}
+
+@media screen and (max-width: 1024px) {
+  .bottom .partners.center ul li {
+    width: 32%;
+  }
+}
+@media screen and (max-width: 768px) {
+  .bottom .btn.partner {
+    margin: 45px 0 38px;
+  }
+  .btn.partner {
+    width: 46%;
+  }
+  .bottom .address,
+  .bottom .phone {
+    width: 20%;
+  }
+  .bottom .general_email,
+  .bottom .support_email {
+    width: 30%;
+  }
+}
+@media screen and (max-width: 667px) {
+  .bottom .copyright {
+    text-align: center;
+  }
+}
+@media screen and (max-width: 568px) {
+  .bottom .header {
+    margin-top: 20px;
+  }
+  .bottom.background {
+    /*height: 667px;*/
+  }
+  .btn.partner {
+    width: 54%;
+  }
+}
+@media screen and (max-width: 480px) {
+  .bottom .btn.partner {
+    margin-top: 27px;
+  }
+  .bottom.background {
+    /*height: 647px;*/
+  }
+  .btn.partner span {
+    font-size: 17px;
+  }
+  .bottom .btn.partner {
+    padding: 11px 18px; 
+  }
+  .btn.partner {
+    width: 82%;
+  }
+  .bottom .address,
+  .bottom .phone,
+  .bottom .general_email,
+  .bottom .support_email {
+    height: 75px;
+  }
+}
+@media screen and (max-width: 375px) {
+  .bottom .address,
+  .bottom .phone,
+  .bottom .general_email,
+  .bottom .support_email {
+    width: 50%;
+  }
+}
+@media screen and (max-width: 320px) {
+  .bottom .footer_meta .footer_meta_left,
+  .bottom .footer_meta .footer_meta_right {
+    width: 100%;
+  } 
+}
+.contact_links .info {
+  text-align: left;
+}
+.contact_links .icon i {
+  border: 1px solid #fff;
+  padding: 14px 17px;
+  font-size: 29px;
+  background-color: #cc0000;
+}
+.contact_links .copy {
+  margin-left: 15px;
+}
+.contact_links .title {
+  font-weight: 900;
+}
+.contact_links .icon i.fa.fa-envelope {
+  font-size: 22px;
+}
+
+@media screen and (max-width: 768px) {
+  #gravity_form .contact_links {
+    width: 117%;
+  }
+  .contact_links .icon {
+    text-align: left;
+  }
+  .contact_links .title {
+    margin-left: 17px;
+    margin-top: 12px;
+  }
+  .contact_links .copy {
+    margin-left: 33px;
+  }
+}
+@media screen and (max-width: 767px) {
+  #gravity_form .contact_links {
+    width: 100%;
+    text-align: center;
+  }
+  .contact_links .test {
+    text-align: center;
+  }
+}
+@media screen and (max-width: 667px) {
+  .contact_links .icon,
+  .contact_links .title,
+  .contact_links .info,
+  .contact_links .copy  {
+    text-align: center;
+    margin-left: 0;
+  }
+  #gravity_form > div > div.contact_links > div > div > div:nth-child(2) > div.col-md-12.col-md-8.info > div > div.row > div {
+    margin-bottom: 10px;
+  }
+}
+/*TICKETS*/
+
+.page-patriot-tour-tickets #heading .background {
+  -webkit-background-size: 100%;
+  background-size: 100%;
+  background-position: top;
+  max-height: 586px;
+}
+#patriot-tour-tickets_content {
+  background-color: #1d1d1d;
+  padding-top: 40px;
+}
+#patriot-tour-tickets_posts .mix {
+  margin-bottom: 20px;
+}
+#patriot-tour-tickets_posts .taste .post_thumb img {
+  height: 282px !important;
+  width: 100%;
+}
+#patriot-tour-tickets_posts .meta {
+  color: #fff;
+  font-family: lato;
+  padding: 10px; 
+  background-color: #777777;
+  font-weight: 400;
+  min-height: 82px;
+}
+#patriot-tour-tickets_posts .meta .title {
+  text-transform: uppercase;
+}
+#patriot-tour-tickets_posts .meta .date {
+  font-weight: 300;
+}
+#content .military.button {
+  text-align: center;
+}
+#content .military.btn {
+  margin-top: 10px;
+  color: #fff;
+  width: 28%;
+  padding: 13px;
+}
+thead {
+  font-family: industrybold;
+}
+table {
+  font-family: industrylight;
+}
+
+th {
+  color: #fff;
+}
+tr:nth-child(even){
+  background-color: #cc0000;
+  color: #fff;
+}
+tr a,
+tr:nth-child(odd) a,
+tr:nth-child(even) a,
+tr:nth-child(even) a:hover {
+  color: #fff;
+  text-decoration: none;
+  font-family: industrybold;
+}
+tr:nth-child(odd) a{
+  color: #000;
+}
+
+@media screen and (max-width: 1024px) {
+  .page-patriot-tour-tickets #heading .background {
+    max-height: 440px;
+  }
+}
+@media screen and (max-width: 992px) {
+  #content .military.btn {
+    width: 34%;
+  }
+}
+@media screen and (max-width: 768px) {
+  .page-patriot-tour-tickets #heading .background {
+    max-height: 344px;
+  }
+  #content .military.btn {
+    width: 45%;
+  }
+}
+@media screen and (max-width: 768px) and (min-width: 737px) {
+  #patriot-tour-tickets_posts .taste .post_thumb img {
+  height: 134px !important;
+  }
+}
+@media screen and (max-width: 736px) {
+  .page-patriot-tour-tickets #heading .background {
+    max-height: 288px;
+  }
+  #content .military.btn {
+    width: 50%;
+  }
+}
+@media screen and (max-width: 568px) {
+  .page-patriot-tour-tickets #heading .background {
+    max-height: 245px;
+  }
+  #content .military.btn {
+    width: 60%;
+  }
+}
+@media screen and (max-width: 480px) {
+  .page-patriot-tour-tickets #heading .background {
+    max-height: 192px;
+  }
+  .page-patriot-tour-tickets #content .heading > h2 {
+    font-size: 2em;
+  }
+  #patriot-tour-tickets_posts .taste .post_thumb img {
+    height: 196px !important;
+  }
+  #content .military.btn {
+    width: 70%;
+  }
+}
+@media screen and (max-width: 414px) {
+  #content .military.btn {
+    width: 80%;
+  }
+}
+@media screen and (max-width: 375px) {
+  .page-patriot-tour-tickets #heading .background {
+    max-height: 164px;
+  }
+  #content .military.btn {
+    width: 100%;
+  }
+  #content .words {
+    font-size: 13px;
+  }
+}
+@media screen and (max-width: 320px) {
+  .page-patriot-tour-tickets #heading .background {
+    max-height: 140px;
+  }
+}
+ul.sponsor-img-box {
+  padding-left: 0;
+  text-align: center;
+  margin-top: 60px;
+}
+ul.sponsor-img-box li {
+  padding-bottom: 10px;
+}
+.sponsor-img {
+  width: 50%;
+  margin: 0 auto;
+}
+
+
+
+/*Press*/
+
+#press {
+  color: #fff;
+}
+#press h1 {
+  font-family: industrymedium;
+}
+#press h4 {
+  font-family: industrylight;
+}
+#press .contact_box {
+  display: inline-block;
+  font-family: lato;
+}
+#press > div > div:nth-child(3) > div:nth-child(2) {
+  padding-left: 20px;
+}
+
+.message {
+  margin: 15px;
+}
+
+/*Book a Speaker*/
+.book-a-speaker .btn {
+  background-color: #cc0000;
+  color: #fff;
+  margin-bottom: 20px;
+}
+.book-a-speaker a .btn {
+  color: #fff;
+}
 /*Test myCode*/
 
 /** {

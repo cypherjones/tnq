@@ -14,13 +14,13 @@
 
       get_template_part('page','about' );
       
-    elseif (is_page('news' )) : 
+    elseif (is_page('upcoming-events' )) : 
 
-       get_template_part('page', 'news' );
+       get_template_part('page', 'events' );
 
     elseif (is_page('patriot-tour' )) :
 
-    	get_template_part('page', 'events');
+    	get_template_part('page', 'tour');
 
     elseif (is_page('support' )) :
 
@@ -29,6 +29,18 @@
     elseif (is_page('join' )) :
 
       get_template_part('page', 'join' );
+
+    elseif (is_page('shop' )) :
+
+      get_template_part('page', 'products' );
+
+    elseif (is_page('patriot-tour-tickets' )) : 
+
+      get_template_part('page', 'tickets' );
+
+    elseif (is_page('log' )) : 
+      
+      get_template_part('page', 'log' );
 
     else : ?>
 
@@ -102,7 +114,7 @@
     <section id="page_speaker">
       <div class="container">
         <div class="row">
-          <div class="col-xs-6 col-sm-6 col-md-6">
+          <div class="col-xs-12 col-sm-6 col-md-6">
             <div class="title">
               <?php $keyCtaTitle = get_field('2_key_cta_title'); if (! empty($keyCtaTitle)) : echo $keyCtaTitle; endif; ?>
             </div>
@@ -110,7 +122,7 @@
               <?php $keyCtaMsg = get_field('2_key_cta_msg'); if (! empty($keyCtaMsg)) : echo $keyCtaMsg; endif; ?>
             </div>
           </div>
-          <div class="col-xs-6 col-sm-6 col-md-6">
+          <div class="col-xs-12 col-sm-6 col-md-6">
             <div class="btn">
               <a href="<?php $keyCtalink = get_field('2_key_cta_button_link'); if (! empty($keyCtalink)) : echo $keyCtalink; endif; ?>"><?php $keyCtaBtnTxt = get_field('2_key_cta_button_text'); if (! empty($keyCtaBtnTxt)) : echo $keyCtaBtnTxt; endif; ?>  <i class="fa fa-chevron-right"></i></a>
             </div>
@@ -123,8 +135,6 @@
     <?php wp_reset_query(); rewind_posts(); ?>
     <?php get_footer(); ?>
    
-  <?php endif;
-
-  ?> 
+  <?php endif;?>
 	
 <?php get_footer(); ?>
