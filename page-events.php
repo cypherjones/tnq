@@ -6,12 +6,12 @@
 
  ?>
 
-<?php get_header( ); ?>
-
-<!-- ============  heading ============ -->
+ <?php get_header(); ?>
+    	
+  <!-- ============  heading ============ -->
 
 	 <section id="<?php echo $page_slug; ?>_heading">
-      <div class="container background" style="background-image: url(<?php $bgImg = get_field('header_bg_image'); if (! empty($bgImg)) : echo $bgImg; endif; ?>);">
+      <div class="container background" style="background-image: url(<?php $bgImg = get_field('header_bg_image'); if (! empty($bgImg)) : echo $bgImg; endif; ?>);   ">
         <div class="row">
           <div class="col-md-12">
             <div class="title">
@@ -27,6 +27,8 @@
 
               <h1>Please Enter A Page Title</h1>
 
+              <?php echo the_field('cta_title'); ?>
+
             <?php endif; ?>
             </div>
           </div>
@@ -34,20 +36,13 @@
       </div>
     </section>
 
-    <section id="<?php echo $page_slug ?>_copy">
-      <div class="container">
-        <div class="row">
-          <div class="col-md-12">
-            <?php the_field('content') ?>
-          </div>
-        </div>
-      </div>
-    </section>
-  
     <!-- ============  events ============ -->
 
-    <section id="<?php echo $page_slug ?>_content">
+    <section id="<?php echo $page_slug; ?>_content">
       <div class="container">
+        <div class="row">
+          <div class="col-md-8">
+            <div class="container">
           <?php
 
           $query = new WP_Query( 
@@ -69,7 +64,7 @@
          ?>
 
         <div id="<?php echo $page_slug ?>_posts" class="row">
-          <div class="col-xs-12 col-md-12 img_column">
+          <div class="col-xs-12 col-md-8 img_column">
 
             <?php while ( $query->have_posts()) : $query->the_post(); 
 
@@ -81,7 +76,7 @@
 
             ?>
 
-                  <div class="mix col-xs-6 col-sm-6 col-md-3">
+                  <div class="mix col-xs-6 col-sm-6 col-md-4">
                     <div class="taste">
                       <div class="post_thumb">
 
@@ -110,60 +105,161 @@
         </div>
       
         </div>  <!-- / row -->
-    </div>
-
-
-    </section>
-
-    <section id="instagram">
-      <div class="container">
-        <div class="row">
-          <div class="col-md-12">
-            <h2>Instagram Feed</h2>
+    </div>    
           </div>
-        </div>
-        <div class="row">
-          <!-- intagram feed -->
-           <div id="instafeed"></div>
+
+          <div class="col-md-4">
+
+          <!-- ============  top sidebar  ============ -->
+
+            <div class="sidebar top">
+              <div class="social center">
+              <?php 
+
+                $fb     = get_field('facebook', 'option');
+                $twtr   = get_field('twitter', 'option');
+                $gp     = get_field('google_plus', 'option');
+
+              ?>
+
+              <ul>
+                <li class="square">
+                  <?php if (! empty($fb)) : ?>
+
+                    <a href="<?php echo $fb; ?>"><i class="fa fa-facebook"></i></a>
+
+                  <?php endif; ?>
+                </li>
+                <li class="square">
+                  <?php if (! empty($twtr)) : ?>
+
+                    <a href="<?php echo $twtr; ?>"><i class="fa fa-twitter"></i></a>
+
+                  <?php endif; ?>
+                </li>
+                <li class="square">
+                  <?php if (! empty($gp)) : ?>
+
+                    <a href="<?php echo $gp; ?>"><i class="fa fa-google-plus"></i></a>
+
+                  <?php endif; ?>
+                </li>
+              </ul> 
+
+              <?php 
+                    
+                    global $wp_query;
+                    
+                    $args = array( 
+                                  'post_type' => 'page',
+                                  'pagename' => 'upcoming-events'
+                                  );
+
+                            query_posts( $args );  
+                
+
+                if(have_posts()) : ?><?php while(have_posts()) : the_post(); 
+
+                      $sidebar_title_top           = get_field('sidebar_title_top');
+                      $sidebar_subtitle_top        = get_field('sidebar_subtitle_top');
+                      $sidebar_button_text_top     = get_field('sidebar_button_text_top');
+                      $sidebar_button_link_top     = get_field('sidebar_button_link_top');
+                      $sidebar_header_middle       = get_field('sidebar_header_middle');
+                      $sidebar_subtitle_middle     = get_field('sidebar_subtitle_middle');
+                      $sidebar_content_middle      = get_field('sidebar_content_middle');
+                      $sidebar_button_text_middle  = get_field('sidebar_button_text_middle');
+                      $sidebar_button_link_middle  = get_field('sidebar_button_link_middle');
+                      $sidebar_title_bottom        = get_field('sidebar_title_bottom');
+                      $sidebar_subtitle_bottom     = get_field('sidebar_subtitle_bottom');
+                      $sidebar_form_content_bottom = get_field('sidebar_form/content_bottom'); 
+              ?>
+
+              <?php if (! empty($sidebar_title_top)) : ?>
+
+                <div class="title"> <?php echo $sidebar_title_top; ?></div>
+
+              <?php endif; ?>
+
+              <?php if (! empty($sidebar_subtitle_top)) : ?>
+
+                <div class="subtitle"><?php echo $sidebar_subtitle_top; ?></div>
+
+              <?php endif; ?>
+
+              <?php if (! empty($sidebar_button_text_top)) : ?>
+
+               <div class="btn"><a href=""><?php echo $sidebar_button_text_top; ?></a></div>
+
+              <?php endif; ?>
+
+            </div>
+          </div>
+
+            <!-- ============  middle sidebar  ============ -->
+
+        <!-- <div class="sidebar middle">
+            
+              <div class="meta">
+              <?php if (! empty($sidebar_header_middle)) : ?>
+
+                <div class="title"><?php echo $sidebar_header_middle; ?></div>
+
+              <?php endif; ?>
+
+              <?php if (! empty($sidebar_subtitle_middle)) : ?>
+
+                <div class="subtitle"><?php echo $sidebar_subtitle_middle; ?></div>
+
+              <?php endif; ?>
+
+              <?php if (! empty($sidebar_content_middle)) : ?>
+
+                <div class="content"><?php echo $sidebar_content_middle; ?></div>
+
+              <?php endif; ?>
+              
+              </div>
+
+               <?php if (! empty($sidebar_button_text_middle)) : ?>
+
+              <div class="btn"><a href=""><?php echo $sidebar_button_text_middle; ?></a></div>
+
+              <?php endif; ?>
+
+            </div> --> 
+
+            <!-- ============  bottom sidebar  ============ -->
+
+            <div class="sidebar bottom">
+
+              <?php if (! empty($sidebar_title_bottom)) : ?>
+
+                <div class="title"><?php echo $sidebar_title_bottom; ?></div>
+
+              <?php endif; ?>
+
+              <?php if (! empty($sidebar_subtitle_bottom)) : ?>
+
+                <div class="subtitle"><?php echo $sidebar_subtitle_bottom; ?></div>
+
+              <?php endif; ?>
+
+              <?php if (! empty($sidebar_form_content_bottom)) : ?>
+
+                <div class="form"><?php echo $sidebar_form_content_bottom; ?></div>
+
+              <?php  endif; ?>
+            </div>
+          </div>
+           
         </div>
       </div>
     </section>
-
-    <section id="partners">
-      <div class="container">
-        <div class="row">
-          <div class="btn partner">
-                <span>Our Partners</span>
-              </div>
-              <div class="partner logos">
-                <ul>
-                  <?php if( have_rows('partner','option') ): while ( have_rows('partner','option') ) : the_row(); ?>
-                    <li>
-                      <a href="<?php the_sub_field('partner_url', 'option') ?>">
-                        <img src="<?php the_sub_field('partner_logo','option'); ?>" alt="">
-                      </a>
-                    </li>
-                  <?php endwhile; endif; ?>
-                </ul>
-              </div>
-        </div>
-      </div>
-
-    </section>
-
-    <?php global $wp_query;
-      
-      $args = array( 
-                    'post_type' => 'page',
-                    'pagename' => 'media'
-                    );
-
-              query_posts( $args );  
-                 
-      ?>      
-  <?php if( have_posts() ) : while (have_posts()) : the_post(); ?>
+<?php endwhile; endif; ?>
+    <!-- ============  cta  ============ -->
+ 
     <section id="page_speaker">
-      <div class="container">
+      <div class="container news">
         <div class="row">
           <div class="col-xs-6 col-sm-6 col-md-6">
             <div class="title">
@@ -175,14 +271,12 @@
           </div>
           <div class="col-xs-6 col-sm-6 col-md-6">
             <div class="btn">
-              <a href="<?php $keyCtalink = get_field('2_key_cta_button_link'); if (! empty($keyCtalink)) : echo $keyCtalink; endif; ?>"><?php $keyCtaBtnTxt = get_field('2_key_cta_button_text'); if (! empty($keyCtaBtnTxt)) : echo $keyCtaBtnTxt; endif; ?>  <i class="fa fa-chevron-right"></i></a>
+              <a href="<?php $keyCtalink = get_field('2_key_cta_button_link'); if (! empty($keyCtalink)) : echo $keyCtalink; endif; ?>"><?php $keyCtaBtnTxt = get_field('2_key_cta_button_text'); if (! empty($keyCtaBtnTxt)) : echo $keyCtaBtnTxt; endif; ?></a>
             </div>
           </div>
         </div>
       </div>
     </section>
-    <?php endwhile; endif; ?>
+  
 
-    <?php wp_reset_query(); rewind_posts(); ?>
-
-<?php get_footer( ); ?>
+ <?php get_footer(); ?>

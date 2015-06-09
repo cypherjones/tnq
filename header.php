@@ -14,10 +14,11 @@
     <meta name="author" content="<?php bloginfo('description'); ?>" />
     <meta name="keywords" content="" />
     <meta name="copyright" content="2014 (c) Company Name" />
-    
-    <meta property="og:title" content="<?php bloginfo('name'); ?><?php wp_title(); ?>" />
+
+    <meta property="og:url" content="<?php bloginfo('url'); ?>" />
+    <meta property="og:title" content="<?php bloginfo('name'); ?>" />
     <meta property="og:description" content="<?php bloginfo('description'); ?>" />
-    <meta property="og:image" content="" />
+    <meta property="og:image" content="http://teamneverquit.com/wp-content/themes/neverquit/assets/img/TNQ_Eagle_Lockup_Logo.jpg" />
     
     <!-- Place favicon.ico & apple-touch-icon.png in the root of your domain and delete these references -->
     
@@ -49,6 +50,11 @@
     <script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script>
     <script src="http://cdn.jsdelivr.net/jquery.mixitup/latest/jquery.mixitup.min.js"></script>
 
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/jquery.slick/1.5.0/slick.css"/>
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/jquery.slick/1.5.3/slick-theme.css"/>
+
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/jquery.slick/1.5.0/slick.min.js"></script>
+
     
     <!-- flexslider -->
 
@@ -57,15 +63,25 @@
       jQuery(window).load(function($) {
         jQuery('.flexslider').flexslider({
           animation: "fade",
-          controlNav: false,
-          directionNav: false,
           pauseOnHover: false,
-          smoothHeight: true
+          directionNav: false
         });
       });
     </script>
 
-
+    <script type="text/javascript" charset="utf-8">
+      console.clear();
+      jQuery(window).load(function($) {
+        jQuery('#featured_product').flexslider({
+          animation: "slide",
+          animationLoop: false,
+          itemWidth: 210,
+          itemMargin: 5,
+          directionNav: false,
+          minItems: 2
+        });
+      });
+    </script>
 
     <!-- type kit -->
 
@@ -76,11 +92,24 @@
 
     <link href="<?php bloginfo('template_directory' ); ?>/css/bootstrap.css" rel="stylesheet">
     <script src="<?php bloginfo('template_directory' ); ?>/js/bootstrap.js" type='text/javascript'></script>
-    
+    <link href="<?php bloginfo('template_directory' ); ?>/css/owl.carousel.css" rel="stylesheet">
+    <script src="<?php bloginfo('template_directory' ); ?>/js/owl.carousel.min.js"></script>
+
+    <script src="<?php bloginfo('template_directory' ); ?>/js/jquery.flexslider.js"></script>
+    <link rel="stylesheet" href="<?php bloginfo('template_directory' ); ?>/css/flexslider.css" type="text/css">
+   <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-61760877-1', 'auto');
+      ga('send', 'pageview');
+
+    </script>
+  </head>
 
   
-    
-
 <body <?php body_class(); ?>>
   
   <header>
@@ -100,7 +129,7 @@
       <div class="container banner">
         <div class="row">
           <div class="col-xs-6 col-md-6">
-            <div class="support left">
+<!--             <div class="support left">
               <i class="fa fa-envelope"></i>
               <?php
 
@@ -111,7 +140,7 @@
                 endif;
 
                ?>
-            </div>
+            </div> -->
             <div class="phone left">
               <i class="fa fa-phone"></i> 
               <?php
@@ -131,7 +160,7 @@
 
                 $fb     = get_field('facebook', 'option');
                 $twtr   = get_field('twitter', 'option');
-                $gp     = get_field('google_plus', 'option');
+                $ig     = get_field('instagram', 'option');
 
               ?>
 
@@ -147,8 +176,8 @@
                   <?php endif; ?>
                 </li>
                 <li>
-                  <?php if (! empty($gp)) : ?>
-                    <a href="<?php echo $gp; ?>"><i class="fa fa-google-plus-square"></i></a>
+                  <?php if (! empty($ig)) : ?>
+                    <a href="<?php echo $ig; ?>"><i class="fa fa-instagram"></i></a>
                   <?php endif; ?>
                 </li>
               </ul>

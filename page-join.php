@@ -80,60 +80,58 @@
       </div>
       <div class="contact_links">
         <div class="row">
-          <div class="center">
-            <ul>
-              <li>
-                <div class="address">
-                  <div class="button">
-                    <div class="btn icon">
-                      <i class="fa fa-location-arrow"></i>
-                    </div>
+          <div class="test">
+            <div class="col-xs-12 col-sm-4 col-md-4">
+              <div class="col-sm-12 col-md-4 icon">
+                <i class="fa fa-location-arrow"></i>
+              </div>
+              <div class="col-sm-12 col-md-8 info">
+                <div class="row">
+                  <div class="title">
+                    Address
                   </div>
-                  <div class="meta">
-                    <div class="title">
-                      Address
-                    </div>
-                    <div class="content">
+                  <div class="row">
+                    <div class="copy">
                       <?php $addy = get_field('address', 'option'); if (! empty($addy)) : echo $addy; endif; ?>
-                   </div>
+                    </div>
                   </div>
                 </div>
-              </li>
-              <li>
-                <div class="email">
-                  <div class="button">
-                    <div class="btn icon">
-                      <i class="fa fa-envelope"></i>
-                    </div>
+              </div>
+            </div>
+            <div class="col-xs-12 col-sm-4 col-md-4">
+              <div class="col-sm-12 col-md-4 icon">
+                <i class="fa fa-envelope"></i>
+              </div>
+              <div class="col-md-12 col-md-8 info">
+                <div class="row">
+                  <div class="title">
+                    Email
                   </div>
-                  <div class="meta">
-                    <div class="title">
-                      Email
-                    </div>
-                    <div class="content">
+                  <div class="row">
+                    <div class="copy">
                       <?php $email = get_field('support_email', 'option'); if (! empty($email)) : echo $email; endif; ?>
                     </div>
                   </div>
                 </div>
-              </li>
-              <li>
-                <div class="phone">
-                  <div class="button">
-                    <div class="btn icon">
-                      <i class="fa fa-phone"></i>
-                    </div>
+              </div>
+            </div>
+            <div class="col-xs-12 col-sm-4 col-md-4">
+              <div class="col-sm-12 col-md-4 icon">
+                <i class="fa fa-phone"></i>
+              </div>
+              <div class="col-sm-12 col-md-8 info">
+                <div class="row">
+                  <div class="title">
+                    Phone Number
                   </div>
-                  <div class="meta">
-                    <div class="title">
-                      Phone Number
-                    </div>
-                    <div class="content">
+                  <div class="row">
+                    <div class="copy">
                       <?php $number = get_field('phone_number', 'option'); if (! empty($number)) : echo $number; endif; ?>
                     </div>
                   </div>
                 </div>
-              </li>
-            </ul>  
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -156,7 +154,7 @@
     <section id="page_speaker">
       <div class="container">
         <div class="row">
-          <div class="col-xs-6 col-sm-6 col-md-6">
+          <div class="col-xs-12 col-sm-6 col-md-6">
             <div class="title">
               <?php $keyCtaTitle = get_field('2_key_cta_title'); if (! empty($keyCtaTitle)) : echo $keyCtaTitle; endif; ?>
             </div>
