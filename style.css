@@ -2812,7 +2812,8 @@ select option:focus {
   margin-bottom: 10px;
 }
 #intro .intro_button,
-#product .product_button {
+#product .product_button,
+#intro .book-button {
   text-align: center;
   margin: 20px auto;
 }
@@ -2820,13 +2821,21 @@ select option:focus {
   margin-bottom: 40px;
 }
 #intro .intro_button .btn,
-#product .btn {
+#product .btn,
+#intro .book-button .btn {
   background-color: #cc0000;
 }
 #intro .intro_button .btn a,
-#product .btn a {
+#product .btn a,
+#intro .book-button .btn a {
   color: #fff;
   text-decoration: none;
+}
+#intro .intro_button {
+  float: right;
+}
+#intro .book-button {
+  float: left;
 }
 #wheretobuy .title h2 {
   text-align: center;
@@ -3370,6 +3379,11 @@ ul.sponsor-img-box li {
   margin-bottom: 20px;
 }
 .book-a-speaker a .btn {
+  color: #fff;
+}
+
+/*speaker page*/
+#speaker-page .speaker-title {
   color: #fff;
 }
 

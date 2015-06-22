@@ -21,7 +21,7 @@
 <section id="speaker-page">
   <div class="container">
     <div class="row">
-      <h1>Team Never Quit Speakers</h1>
+      <h1 class="speaker-title">Team Never Quit Speakers</h1>
     </div>
     <div class="row">
     <?php 
