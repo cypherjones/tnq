@@ -3372,6 +3372,22 @@ ul.sponsor-img-box li {
 .book-a-speaker a .btn {
   color: #fff;
 }
+
+/*sponsor*/
+.be-a-sponsor,
+.be-a-sponsor a {
+  color: #fff;
+  text-align: center;
+}
+
+/*archive*/
+.archive td,
+.archive td a,
+.single-print-jobs {
+  color: #fff;
+}
+
+
 /*Test myCode*/
 
 /** {

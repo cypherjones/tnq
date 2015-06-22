@@ -298,6 +298,54 @@ if( function_exists('acf_add_options_page') ) {
   
     add_action( 'init', 'team_post_type', 0 );
 
+    // Register Print Job Post Type
+
+    function print_post_type() {
+
+      $labels = array(
+        'name'                => _x( 'Print Jobs', 'Post Type General Name', 'tnq' ),
+        'singular_name'       => _x( 'Job', 'Post Type Singular Name', 'tnq' ),
+        'menu_name'           => __( 'Jobs', 'tnq' ),
+        'parent_item_colon'   => __( 'Parent Jobs:', 'tnq' ),
+        'all_items'           => __( 'All Jobs', 'tnq' ),
+        'view_item'           => __( 'View Jobs', 'tnq' ),
+        'add_new_item'        => __( 'Add New Jobs', 'tnq' ),
+        'add_new'             => __( 'Add Jobs', 'tnq' ),
+        'edit_item'           => __( 'Edit Jobs', 'tnq' ),
+        'update_item'         => __( 'Update Jobs', 'tnq' ),
+        'search_items'        => __( 'Search Jobs', 'tnq' ),
+        'not_found'           => __( 'Not found', 'tnq' ),
+        'not_found_in_trash'  => __( 'Not found in Trash', 'tnq' ),
+      );
+      $args = array(
+        'label'               => __( 'Print Jobs', 'tnq' ),
+        'description'         => __( 'Post Type Description', 'tnq' ),
+        'labels'              => $labels,
+        'supports'            => array( 'title' ),
+        'taxonomies'          => array( 'category', 'post_tag' ),
+        'hierarchical'        => false,
+        'public'              => true,
+        'show_ui'             => true,
+        'show_in_menu'        => true,
+        'show_in_nav_menus'   => true,
+        'show_in_admin_bar'   => true,
+        'menu_position'       => 10,
+        'can_export'          => true,
+        'has_archive'         => true, 
+        'exclude_from_search' => false,
+        'publicly_queryable'  => true,
+        'capability_type'     => 'post',
+        'rewrite'             => array('slug' => 'print-jobs'),
+        'menu_icon'           => 'dashicons-admin-users',
+      );
+      register_post_type( 'print-jobs', $args );
+
+    }
+
+  // Hook into the 'init' action
+  
+    add_action( 'init', 'print_post_type', 0 );
+
 // Add Sidebars
 
     function my_sidebar() {
@@ -317,7 +365,7 @@ if( function_exists('acf_add_options_page') ) {
 
   // paginataion
 
-  
+
 
   
 ?>

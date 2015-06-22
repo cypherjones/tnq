@@ -86,7 +86,7 @@
                   <div class="logo">
                     <img src="http://c37.df0.myftpupload.com/wp-content/themes/neverquit/assets/img/patriot_tour_2015_logo.png" alt="Patriot Tour and TNQ Logo">
                   </div>
-                  <p>20 Cities to Reignite Patriotism</p>
+                  <p>Cities to Reignite Patriotism</p>
                 </div>
                 <div class="button">
                   <a href="http://bit.ly/1CQlekI">
@@ -114,13 +114,6 @@
                   <img src="<?php echo $rand_row_image; ?>" alt="">
                   <?php endif; ?>
                 </div>
-                <div class="be-a-sponsor">
-                  <a href="mailto:info@patriottour.com">
-                    <span class="">
-                      Become a Sponsor
-                    </span>
-                  </a>
-                </div>
               </div>
             </div>
           </div>
@@ -139,6 +132,17 @@
                   </a>
                 </div>
               </div>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-12">
+            <div class="be-a-sponsor">
+              <a href="mailto:info@patriottour.com">
+                <h3 class="">
+                  Become a Sponsor
+                </h3>
+              </a>
             </div>
           </div>
         </div>
@@ -161,7 +165,8 @@
                           'post_type' => 'tnq-members',
                           'order'     => 'ASC',
                           'orderby'   => 'date',
-                          'posts_per_page'  => 20                          );
+                          'posts_per_page'  => 20                          
+                          );
 
               $the_query = new WP_Query( $args ); 
 

@@ -42,6 +42,10 @@
       
       get_template_part('page', 'log' );
 
+    elseif (is_page('print' )) :
+
+      get_template_part('print' );
+
     else : ?>
 
 <?php if(have_posts()) : while(have_posts()) : the_post(); ?>
