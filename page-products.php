@@ -81,16 +81,28 @@
            <?php the_field('intro_description'); ?> ?>
         </div>
       </div>
-    <?php endif; ?>
+    <?php endif; ?>   
       <div class="row">
-        <div class="intro_button">
-          <div class="btn">
-            <a href="http://shop.teamneverquit.com">
-              Shop Apparel
-            </a>
+        <div class="col-md-6">
+          <div class="intro_button">
+            <div class="btn">
+              <a href="http://shop.teamneverquit.com">
+                Shop Apparel
+              </a>
+            </div>
           </div>
         </div>
-      </div>      <div class="row">
+        <div class="col-md-6">
+          <div class="book-button">
+            <div class="btn">
+              <a href="http://marcusluttrell.com/product-category/books/">
+                Shop Books
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
         <div class="flexslider">
           <ul class="slides">
             <?php if (have_rows('intro_product_gallery')) : while (have_rows('intro_product_gallery')) : the_row(); ?>
